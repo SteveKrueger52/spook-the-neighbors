@@ -17,5 +17,12 @@ public class GhostController : MonoBehaviour
         Vector2 delta = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         delta = delta.magnitude > 1 ? delta.normalized : delta;
         transform.localPosition += new Vector3(delta.x, delta.y, 0) * speed;
+        if (Input.GetButtonDown("Boo"))
+            boo();
+    }
+
+    void boo()
+    {
+        //boo!
     }
 }

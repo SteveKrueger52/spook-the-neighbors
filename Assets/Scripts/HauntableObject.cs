@@ -21,13 +21,13 @@ public class HauntableObject : MonoBehaviour
     {
         if (isHighlighted && !isHaunted)
         {
-            if (false) //if haunt button pressed
+            if (Input.GetButtonDown("Haunt"))
                 Haunt();
         }
 
         if (isHaunted)
         {
-            if (false) //if haunt button pressed
+            if (Input.GetButtonDown("Haunt"))
                 Unhaunt();
             //all generic haunted controls and logic here
         }
