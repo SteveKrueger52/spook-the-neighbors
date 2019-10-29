@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Door : HauntableObject
 {
     public bool isClosed = true;
@@ -15,7 +16,10 @@ public class Door : HauntableObject
     // Update is called once per frame
     void Update()
     {
-        
+        if (isHaunted)
+        {
+
+        }
     }
 
     public void Open()
