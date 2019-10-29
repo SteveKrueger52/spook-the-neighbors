@@ -8,11 +8,12 @@ public class HauntableObject : MonoBehaviour
     public bool isHaunted = false;
     public bool isHighlighted = false;
     public float speed = 0;
+    public GameObject ghost;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ghost = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -20,13 +21,13 @@ public class HauntableObject : MonoBehaviour
     {
         if (isHighlighted && !isHaunted)
         {
-            if (false) //haunt button
+            if (false) //if haunt button pressed
                 Haunt();
         }
 
         if (isHaunted)
         {
-            if (false) //haunt button
+            if (false) //if haunt button pressed
                 Unhaunt();
             //all generic haunted controls and logic here
         }
@@ -35,12 +36,13 @@ public class HauntableObject : MonoBehaviour
     void Haunt()
     {
         isHaunted = true;
-        //kill ghost
+        ghost.SetActive(false);
     }
 
     void Unhaunt()
     {
         isHaunted = false;
-        //instantiate ghost
+        ghost.transform.position = this.gameObject.transform.position;
+        ghost.SetActive(true);
     }
 }
