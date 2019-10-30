@@ -14,7 +14,7 @@ public class Person : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        exits = new List<GameObject>(GameObject.FindGameObjectsWithTag("exits"));
+        exits = new List<GameObject>(GameObject.FindGameObjectsWithTag("Exit"));
     }
 
     // Update is called once per frame

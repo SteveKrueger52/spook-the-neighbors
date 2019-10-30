@@ -20,12 +20,12 @@ public class GhostController : MonoBehaviour
         transform.localPosition += new Vector3(delta.x, delta.y, 0) * speed;
         if (Input.GetButtonDown("Boo"))
             boo();
-        if (Input.GetButtonDown("Boo"))
+        if (Input.GetButtonDown("Hide"))
         {
             //hide
         }
 
-        if (Input.GetButtonUp("Boo"))
+        if (Input.GetButtonUp("Hide"))
         {
             //unhide
         }

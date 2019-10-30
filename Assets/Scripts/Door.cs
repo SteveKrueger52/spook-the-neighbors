@@ -27,7 +27,7 @@ public class Door : HauntableObject
         isClosed = false;
     }
 
-    void Slam()
+    public override void OnInteract()
     {
         // make noise
         isClosed = !isClosed;

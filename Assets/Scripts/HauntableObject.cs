@@ -10,6 +10,10 @@ public class HauntableObject : MonoBehaviour
     public float speed = 0;
     public GameObject ghost;
 
+    public virtual void OnInteract() { }
+    public virtual void OnBoo() { }
+    public virtual void OnHide() { }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +33,20 @@ public class HauntableObject : MonoBehaviour
         {
             if (Input.GetButtonDown("Haunt"))
                 Unhaunt();
-            //all generic haunted controls and logic here
+
+            if (Input.GetButtonDown("Interact"))
+                OnInteract();
+
+            if (Input.GetButtonDown("Boo"))
+                OnBoo();
+
+            if (Input.GetButtonDown("Hide"))
+                OnHide();
+
+            if (Input.GetAxis("Horizontal") > 0)
+                transform.localPosition += new Vector3(1, 0, 0) * speed;
+            else if (Input.GetAxis("Horizontal") < 0)
+                transform.localPosition += new Vector3(-1, 0, 0) * speed;
         }
     }
 
