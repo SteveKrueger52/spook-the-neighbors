@@ -533,9 +533,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1033347763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4461239274d54700b8122eb3bd969c4, type: 3}
+  m_Script: {fileID: 11500000, guid: ada6b06cdbfd8a34ba46d50e0b160b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  hauntables: []
 --- !u!1 &1496191711
 GameObject:
   m_ObjectHideFlags: 0
