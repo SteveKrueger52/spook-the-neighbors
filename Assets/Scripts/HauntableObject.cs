@@ -17,7 +17,7 @@ public class HauntableObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ghost = GameObject.Find("Player");
+        ghost = GameObject.Find("Ghost");
     }
 
     // Update is called once per frame
