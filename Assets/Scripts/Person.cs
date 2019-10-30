@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Person : MonoBehaviour
 {
+    public float speed;
     public float fear = 0;
     public float maxFear = 100;
     public string status = "idle"; // "idle" "investigate" or "gtfo"
