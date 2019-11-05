@@ -6,17 +6,15 @@ public class AIPatrol : MonoBehaviour
 {
     [SerializeField]
     float MinX, MaxX, speed, InitWait;
-    float X, Y,WaitTime;
+    float X, Y, WaitTime;
 
-    List<GameObject> TriggeredObjects;
+    public Person PersonScript;
 
-    Vector2 MoveSpot;
+    GameObject TriggeredGameobject;
 
-    bool TargetReached;
- 
-    
+    Vector2 MoveSpot, Target;
 
-    public bool isInvestigating;
+  
 
     public ObjectTrigger objecttriggerscript;
 
@@ -25,63 +23,74 @@ public class AIPatrol : MonoBehaviour
     {
         Y = transform.position.y;
         X = Random.Range(MinX, MaxX);
-        isInvestigating = false;
-        TriggeredObjects = new List<GameObject>();
-        TargetReached = true;
-        
-        
+       
+
+        PersonScript = GetComponent<Person>();
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(TriggeredObjects.Count > 0)
-        {
-            isInvestigating = true;
-        }
-        if(TriggeredObjects.Count <= 0)
-        {
-            isInvestigating = false;
-        }
-        
 
-        if (!isInvestigating)
+
+
+        if (PersonScript.status == "idle")
         {
-            Patrol();
+           Patrol();
         }
 
-        if(isInvestigating)
+        if (PersonScript.status == "investigate")
         {
             Investigate();
         }
 
-     //   Debug.Log(TriggeredObjects.Count);
+        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "InteractableObject")
+        if (collision.gameObject.tag == "InteractableObject" )
         {
-            
-
             objecttriggerscript = collision.gameObject.GetComponent<ObjectTrigger>();
 
-            if(objecttriggerscript.isTriggered)
+            if (objecttriggerscript.isTriggered)
             {
-                Debug.Log(collision.gameObject.name + " triggered");
-                TriggeredObjects.Add(collision.gameObject);
+                
+                PersonScript.status = "investigate";
+
             }
-            
         }
+        TriggeredGameobject = objecttriggerscript.gameObject;
+        Target = collision.gameObject.transform.position;
+       
     }
-    
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "InteractableObject")
+        {
+            objecttriggerscript = collision.gameObject.GetComponent<ObjectTrigger>();
+
+            if (objecttriggerscript.isTriggered)
+            {
+
+                PersonScript.status = "investigate";
+
+
+            }
+        }
+        TriggeredGameobject = objecttriggerscript.gameObject;
+        Target = collision.gameObject.transform.position;
+    }
+
 
 
     void Patrol()
     {
         MoveSpot = new Vector2(X, Y);
-        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
+        
 
         if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
         {
@@ -99,26 +108,26 @@ public class AIPatrol : MonoBehaviour
         }
     }
 
-    //void Investigate()
-    //{
-    //    if (TargetReached)
-    //    {
-    //        foreach (GameObject item in TriggeredObjects)
-    //        {
-    //            TargetReached = false;
-    //            MoveSpot = new Vector2(item.transform.position.x, Y);
-    //            transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
-    //            if (Vector2.Distance(transform.position, MoveSpot) < 0.2f)
-    //            {
-    //                TargetReached = true;
-    //            }
-    //        }
-    //    }
+    void Investigate()
+    {
+        MoveSpot = new Vector2(Target.x, Y);
 
-        
-    //    TriggeredObjects = new List<GameObject>();
-        
-        
+        Debug.Log(TriggeredGameobject);
 
-    //}
+        if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
+        {
+            objecttriggerscript.isTriggered = false;
+            StartCoroutine(WaitForReach());
+
+        }
+
+    }
+
+    IEnumerator WaitForReach()
+    {
+        yield return new WaitForSeconds(5f);
+        PersonScript.status = "idle";
+
+    }
+
 }

@@ -5,11 +5,13 @@ using UnityEngine;
 public class ObjectTrigger : MonoBehaviour
 {
     public  bool isTriggered;
+
+    public float time;
     // Start is called before the first frame update
     void Start()
     {
         isTriggered = false;
-        Invoke("Trigger", 5f);
+        Invoke("Trigger", time);
     }
 
     // Update is called once per frame
