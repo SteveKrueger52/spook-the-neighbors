@@ -499,7 +499,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f8f6bc7cd201ab945893b8b4be951e97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -533,9 +533,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1033347763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4461239274d54700b8122eb3bd969c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 86f4badb7167c984985595d8bfa377c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  hauntables: []
 --- !u!1 &1496191711
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +601,7 @@ SpriteRenderer:
   m_Size: {x: 8, y: 3.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1496191713
