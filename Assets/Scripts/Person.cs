@@ -30,6 +30,7 @@ public class Person : MonoBehaviour
         } else if (status == "gtfo")
         {
             //gtfo behvaior here
+            
         }
     }
 
@@ -50,4 +51,5 @@ public class Person : MonoBehaviour
         });
         return exits[0];
     }
+
 }

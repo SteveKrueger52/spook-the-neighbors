@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Exit : MonoBehaviour
+public class ObjectTrigger : MonoBehaviour
 {
+    public  bool isTriggered;
+
+    public float time;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //isTriggered = false;
+        Invoke("Trigger", time);
     }
 
     // Update is called once per frame
@@ -16,12 +20,10 @@ public class Exit : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Trigger()
     {
-        if(collision.gameObject.tag == "NPC")
-        {
-            collision.gameObject.transform.parent.gameObject.SetActive(false);
-        }
+        isTriggered = true;
     }
+
 
 }
