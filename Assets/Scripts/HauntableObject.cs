@@ -57,7 +57,7 @@ public class HauntableObject : MonoBehaviour
         ghost.SetActive(false);
     }
 
-    void Unhaunt()
+    public void Unhaunt()
     {
         isHaunted = false;
         ghost.transform.position = this.gameObject.transform.position;
