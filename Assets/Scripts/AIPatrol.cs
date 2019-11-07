@@ -10,7 +10,7 @@ public class AIPatrol : MonoBehaviour
 
     public Person PersonScript;
 
-    GameObject TriggeredGameobject;
+   
 
     Vector2 MoveSpot, Target;
 
@@ -62,7 +62,7 @@ public class AIPatrol : MonoBehaviour
 
             }
         }
-        TriggeredGameobject = objecttriggerscript.gameObject;
+        
         Target = collision.gameObject.transform.position;
        
     }
@@ -81,7 +81,7 @@ public class AIPatrol : MonoBehaviour
 
             }
         }
-        TriggeredGameobject = objecttriggerscript.gameObject;
+        
         Target = collision.gameObject.transform.position;
     }
 
@@ -112,7 +112,7 @@ public class AIPatrol : MonoBehaviour
     {
         MoveSpot = new Vector2(Target.x, Y);
 
-        Debug.Log(TriggeredGameobject);
+        
 
         if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
         {
