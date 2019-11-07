@@ -45,6 +45,11 @@ public class AIPatrol : MonoBehaviour
             Investigate();
         }
 
+        if(PersonScript.status == "gtfo")
+        {
+            GTFO();
+        }
+
         transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
 
     }
@@ -57,8 +62,17 @@ public class AIPatrol : MonoBehaviour
 
             if (objecttriggerscript.isTriggered)
             {
-                
-                PersonScript.status = "investigate";
+                if (Vector2.Distance(transform.position, objecttriggerscript.gameObject.transform.position) > 5f)
+                {
+                    PersonScript.status = "investigate";
+                }
+
+                if (Vector2.Distance(transform.position, objecttriggerscript.gameObject.transform.position) <= 5f)
+                {
+                    PersonScript.status = "gtfo";
+                }
+
+
 
             }
         }
@@ -67,23 +81,29 @@ public class AIPatrol : MonoBehaviour
        
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "InteractableObject")
-        {
-            objecttriggerscript = collision.gameObject.GetComponent<ObjectTrigger>();
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "InteractableObject")
+    //    {
+    //        objecttriggerscript = collision.gameObject.GetComponent<ObjectTrigger>();
 
-            if (objecttriggerscript.isTriggered)
-            {
+    //       if(objecttriggerscript.isTriggered)
+    //        {
+    //            if (Vector2.Distance(transform.position, objecttriggerscript.gameObject.transform.position) > 5f)
+    //            {
+    //                PersonScript.status = "investigate";
+    //            }
 
-                PersonScript.status = "investigate";
+    //            if (Vector2.Distance(transform.position, objecttriggerscript.gameObject.transform.position) <= 5f)
+    //            {
+    //                PersonScript.status = "gtfo";
+    //            }
 
-
-            }
-        }
+    //        }
+    //    }
         
-        Target = collision.gameObject.transform.position;
-    }
+    //    Target = collision.gameObject.transform.position;
+    //}
 
 
 
@@ -121,6 +141,11 @@ public class AIPatrol : MonoBehaviour
 
         }
 
+    }
+
+    void GTFO()
+    {
+        MoveSpot = new Vector2(PersonScript.GetClosestExit().transform.position.x, Y);
     }
 
     IEnumerator WaitForReach()

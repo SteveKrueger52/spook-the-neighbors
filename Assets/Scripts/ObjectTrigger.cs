@@ -10,7 +10,7 @@ public class ObjectTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isTriggered = false;
+        //isTriggered = false;
         Invoke("Trigger", time);
     }
 

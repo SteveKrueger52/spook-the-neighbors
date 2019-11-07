@@ -15,7 +15,7 @@ public class Person : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // exits = new List<GameObject>(GameObject.FindGameObjectsWithTag("Exit"));
+        exits = new List<GameObject>(GameObject.FindGameObjectsWithTag("Exit"));
     }
 
     // Update is called once per frame
@@ -30,6 +30,7 @@ public class Person : MonoBehaviour
         } else if (status == "gtfo")
         {
             //gtfo behvaior here
+            
         }
     }
 
@@ -40,15 +41,15 @@ public class Person : MonoBehaviour
             fear = maxFear;
     }
 
-    //public GameObject GetClosestExit() //this finds closest exit to person on the screen, not necessarily exit with shortest path
-    //{
-    //    exits.Sort(delegate (GameObject a, GameObject b)
-    //    {
-    //        return Vector2.Distance(this.transform.position, a.transform.position)
-    //        .CompareTo(
-    //          Vector2.Distance(this.transform.position, b.transform.position));
-    //    });
-    //    return exits[0];
-    //}
-    
+    public GameObject GetClosestExit() //this finds closest exit to person on the screen, not necessarily exit with shortest path
+    {
+        exits.Sort(delegate (GameObject a, GameObject b)
+        {
+            return Vector2.Distance(this.transform.position, a.transform.position)
+            .CompareTo(
+              Vector2.Distance(this.transform.position, b.transform.position));
+        });
+        return exits[0];
+    }
+
 }
