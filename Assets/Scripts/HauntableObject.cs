@@ -25,7 +25,8 @@ public class HauntableObject : MonoBehaviour
     {
         if (isHighlighted && !isHaunted)
         {
-            if (Input.GetButtonDown("Haunt"))
+            if (Input.GetButtonDown("Haunt")) 
+                // Need a way to haunt exclusively one object, and toggle between stacked objects for selection
                 Haunt();
         }
 

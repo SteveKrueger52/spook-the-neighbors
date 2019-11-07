@@ -6,6 +6,9 @@ public class GhostController : MonoBehaviour
 {
     public float speed;
     public List<GameObject> hauntables = new List<GameObject>();
+    public bool hidden = false;
+    public float hauntRange = 5f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +25,16 @@ public class GhostController : MonoBehaviour
             boo();
         if (Input.GetButtonDown("Hide"))
         {
-            //hide
+            Color temp = GetComponent<SpriteRenderer>().color;
+            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 50);
+            hidden = true;
         }
 
         if (Input.GetButtonUp("Hide"))
         {
-            //unhide
+            Color temp = GetComponent<SpriteRenderer>().color;
+            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 255);
+            hidden = false;
         }
 
         hauntables.Sort(delegate (GameObject a, GameObject b)
@@ -41,7 +48,7 @@ public class GhostController : MonoBehaviour
             HauntableObject obj = i.GetComponent<HauntableObject>();
             obj.isHighlighted = false;
         }
-        if (Vector2.Distance(this.transform.position, hauntables[0].transform.position) < 5) //5 is arbitrary range, requires ingame testing
+        if (Vector2.Distance(this.transform.position, hauntables[0].transform.position) < hauntRange) //5 is arbitrary range, requires ingame testing
             hauntables[0].GetComponent<HauntableObject>().isHighlighted = true;
     }
 
