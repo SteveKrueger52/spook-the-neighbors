@@ -15,4 +15,13 @@ public class Exit : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "NPC")
+        {
+            collision.gameObject.transform.parent.gameObject.SetActive(false);
+        }
+    }
+
 }
