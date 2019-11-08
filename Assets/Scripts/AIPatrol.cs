@@ -56,7 +56,7 @@ public class AIPatrol : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "InteractableObject" )
+        if (collision.gameObject.tag == "HauntableObject" )
         {
             objecttriggerscript = collision.gameObject.GetComponent<ObjectTrigger>();
 
@@ -83,7 +83,7 @@ public class AIPatrol : MonoBehaviour
 
     //private void OnTriggerStay2D(Collider2D collision)
     //{
-    //    if (collision.gameObject.tag == "InteractableObject")
+    //    if (collision.gameObject.tag == "HauntableObject")
     //    {
     //        objecttriggerscript = collision.gameObject.GetComponent<ObjectTrigger>();
 

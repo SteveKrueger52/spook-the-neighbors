@@ -7,6 +7,7 @@ TagManager:
   - InteractableObject
   - NPC
   - Exit
+  - HauntableObject
   layers:
   - Default
   - TransparentFX

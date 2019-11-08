@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Chandelier : HauntableObject
 {
-
+    private ObjectTrigger triggerscript;
 
     // Start is called before the first frame update
-    void Start()
+    public override void OnStart()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        triggerscript = GetComponent<ObjectTrigger>();
     }
 
     public override void OnBoo()
     {
+
+        triggerscript.isTriggered = !triggerscript.isTriggered;
         //fall
         Instantiate(new ObjectTrigger(), this.transform);
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");

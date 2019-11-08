@@ -95,5 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHaunted: 0
   isHighlighted: 0
-  speed: 0
+  speed: 0.2
   ghost: {fileID: 0}
+  highlight_color: {r: 0, g: 255, b: 0, a: 255}

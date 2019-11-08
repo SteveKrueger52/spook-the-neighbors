@@ -7,7 +7,7 @@ public class GhostController : MonoBehaviour
     public float speed;
     public List<GameObject> hauntables = new List<GameObject>();
     public bool hidden = false;
-    public float hauntRange = 5f;
+    public float hauntRange = 0.1f;
     
     // Start is called before the first frame update
     void Start()
@@ -43,27 +43,33 @@ public class GhostController : MonoBehaviour
             .CompareTo(
               Vector2.Distance(this.transform.position, b.transform.position));
         });
+        hauntables[0].GetComponent <HauntableObject>().isHighlighted = true;
         foreach (GameObject i in hauntables)
         {
             HauntableObject obj = i.GetComponent<HauntableObject>();
-            obj.isHighlighted = false;
+            if (Vector2.Distance(this.transform.position, obj.transform.position) < hauntRange) //5 is arbitrary range, requires ingame testing
+                obj.GetComponent<HauntableObject>().isHighlighted = true;
+            else
+                obj.isHighlighted = false;
         }
-        if (Vector2.Distance(this.transform.position, hauntables[0].transform.position) < hauntRange) //5 is arbitrary range, requires ingame testing
-            hauntables[0].GetComponent<HauntableObject>().isHighlighted = true;
+        
     }
 
     void boo()
     {
-        //boo!
-        Instantiate(new ObjectTrigger(), this.transform);
-        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
-        foreach (GameObject target in people)
-        {
-            float distance = Vector3.Distance(target.transform.position, transform.position);
-            if (distance < 5)//5 is arbitrary range, requires ingame testing
-            {
-                target.GetComponent<Person>().status = "gtfo";
-            }
-        }
+        
+
+
+//        //boo!
+//       // Instantiate(new ObjectTrigger(), this.transform);
+//        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
+//        foreach (GameObject target in people)
+//        {
+//            float distance = Vector3.Distance(target.transform.position, transform.position);
+//            if (distance < 5)//5 is arbitrary range, requires ingame testing
+//            {
+//                target.GetComponent<Person>().status = "gtfo";
+//            }
+//        }    }
     }
 }

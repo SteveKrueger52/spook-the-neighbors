@@ -9,28 +9,49 @@ public class HauntableObject : MonoBehaviour
     public bool isHighlighted = false;
     public float speed = 0;
     public GameObject ghost;
+    public Color highlight_color = new Color(0,255,0,255);
 
     public virtual void OnInteract() { }
+    public virtual void OnStart() { }
     public virtual void OnBoo() { }
     public virtual void OnHide() { }
+
+   // private ObjectTrigger triggerscript;
 
     // Start is called before the first frame update
     void Start()
     {
         ghost = GameObject.Find("Ghost");
+        OnStart();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isHighlighted)
+        {
+            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+            renderer.color = highlight_color;
+        }
+        else
+        {
+            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+            renderer.color = new Color(255,255,255,255);
+        }
+            
+            
         if (isHighlighted && !isHaunted)
         {
-            if (Input.GetButtonDown("Haunt")) 
-                // Need a way to haunt exclusively one object, and toggle between stacked objects for selection
-                Haunt();
-        }
+            //Debug.Log("test");
+            if (Input.GetButtonDown("Haunt"))
+            {
 
-        if (isHaunted)
+
+                // Need a way to haunt exclusively one object, and toggle between stacked objects for selection
+                //Debug.Log("haunt");
+                Haunt();
+            }
+        } else if (isHaunted)
         {
             if (Input.GetButtonDown("Haunt"))
                 Unhaunt();
@@ -45,9 +66,14 @@ public class HauntableObject : MonoBehaviour
                 OnHide();
 
             if (Input.GetAxis("Horizontal") > 0)
+            {
+                Debug.Log("move");
                 transform.localPosition += new Vector3(1, 0, 0) * speed;
+            }
             else if (Input.GetAxis("Horizontal") < 0)
+            {
                 transform.localPosition += new Vector3(-1, 0, 0) * speed;
+            }
         }
     }
 

@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+ 
+
 public class Television : HauntableObject
 {
+    private ObjectTrigger triggerscripttv;
     // Start is called before the first frame update
-    void Start()
+    public override void OnStart()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        triggerscripttv = GetComponent<ObjectTrigger>();
     }
 
     public override void OnBoo()
     {
+        triggerscripttv.isTriggered = !triggerscripttv.isTriggered;
+        
         Instantiate(new ObjectTrigger(), this.transform);
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
