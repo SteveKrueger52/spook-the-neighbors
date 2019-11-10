@@ -14,7 +14,7 @@ public class Chandelier : HauntableObject
 
     public override void OnBoo()
     {
-
+        Debug.Log("boo!");
         triggerscript.isTriggered = !triggerscript.isTriggered;
         //fall
         Instantiate(new ObjectTrigger(), this.transform);
