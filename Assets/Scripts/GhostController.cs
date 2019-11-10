@@ -43,16 +43,18 @@ public class GhostController : MonoBehaviour
             .CompareTo(
               Vector2.Distance(this.transform.position, b.transform.position));
         });
-        hauntables[0].GetComponent <HauntableObject>().isHighlighted = true;
+        
         foreach (GameObject i in hauntables)
         {
             HauntableObject obj = i.GetComponent<HauntableObject>();
-            if (Vector2.Distance(this.transform.position, obj.transform.position) < hauntRange) //5 is arbitrary range, requires ingame testing
-                obj.GetComponent<HauntableObject>().isHighlighted = true;
-            else
-                obj.isHighlighted = false;
+            obj.isHighlighted = false;
         }
-        
+        if (Vector2.Distance(this.transform.position, hauntables[0].transform.position) < hauntRange)
+        {
+            //if (this.GetComponent<BoxCollider2D>().Distance(hauntables[0].GetComponent<BoxCollider2D>()).distance < hauntRange)
+            hauntables[0].GetComponent<HauntableObject>().isHighlighted = true;
+        }
+
     }
 
     void boo()
