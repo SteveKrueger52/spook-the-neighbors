@@ -752,10 +752,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI
       objectReference: {fileID: 0}
+    - target: {fileID: 6141402685735876810, guid: 139f3d7e8de294785a65f83eddf13e53,
+        type: 3}
+      propertyPath: m_TagString
+      value: Person
+      objectReference: {fileID: 0}
     - target: {fileID: 6141402685735876823, guid: 139f3d7e8de294785a65f83eddf13e53,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.65
+      value: -3.65
       objectReference: {fileID: 0}
     - target: {fileID: 6141402685735876823, guid: 139f3d7e8de294785a65f83eddf13e53,
         type: 3}
@@ -1001,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 2192047220433296942, guid: 582fae8a142e54598b275d6600a84b25,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.79
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 2192047220433296942, guid: 582fae8a142e54598b275d6600a84b25,
         type: 3}

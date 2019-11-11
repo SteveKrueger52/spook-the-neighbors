@@ -16,7 +16,7 @@ public class Chandelier : HauntableObject
     {
         yield return new WaitForSeconds(1);
         Debug.Log("Crash!");
-        GameObject[] people = GameObject.FindGameObjectsWithTag("NPC");
+        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
         {
             float distance = Vector3.Distance(target.transform.position, transform.position);
