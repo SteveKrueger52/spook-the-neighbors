@@ -5,8 +5,8 @@ using UnityEngine;
 public class Person : MonoBehaviour
 {
     public float speed;
-    public float fear = 0;
-    public float maxFear = 100;
+    public float fear = 0f;
+    public float maxFear = 100f;
     public string status = "idle"; // "idle" "investigate" or "gtfo"
                                    //probably need some kind of "last heard noise" variable for behaviors to use
 
@@ -21,6 +21,9 @@ public class Person : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+        renderer.color = new Color(1, (1 - (0.01f * fear)), (1 - (0.01f * fear)), 1);
+
         if (status == "idle")
         {
             //idle behavior here
