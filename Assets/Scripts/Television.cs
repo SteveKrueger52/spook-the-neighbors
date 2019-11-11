@@ -17,8 +17,8 @@ public class Television : HauntableObject
     {
         triggerscripttv.isTriggered = !triggerscripttv.isTriggered;
         
-        Instantiate(new ObjectTrigger(), this.transform);
-        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
+        //Instantiate(new ObjectTrigger(), this.transform);
+        GameObject[] people = GameObject.FindGameObjectsWithTag("NPC");
         foreach (GameObject target in people)
         {
             float distance = Vector3.Distance(target.transform.position, transform.position);

@@ -12,13 +12,11 @@ public class Chandelier : HauntableObject
         triggerscript = GetComponent<ObjectTrigger>();
     }
 
-    public override void OnBoo()
+    IEnumerator Crash()
     {
-        Debug.Log("boo!");
-        triggerscript.isTriggered = !triggerscript.isTriggered;
-        //fall
-        Instantiate(new ObjectTrigger(), this.transform);
-        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
+        yield return new WaitForSeconds(1);
+        Debug.Log("Crash!");
+        GameObject[] people = GameObject.FindGameObjectsWithTag("NPC");
         foreach (GameObject target in people)
         {
             float distance = Vector3.Distance(target.transform.position, transform.position);
@@ -29,5 +27,15 @@ public class Chandelier : HauntableObject
         }
         Unhaunt();
         gameObject.SetActive(false);
+    }
+
+    public override void OnBoo()
+    {
+        triggerscript.isTriggered = !triggerscript.isTriggered;
+        new WaitForSeconds(1);
+        this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        //Instantiate(new ObjectTrigger(), this.transform);
+        StartCoroutine(Crash());
+
     }
 }

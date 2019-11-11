@@ -67,7 +67,6 @@ public class HauntableObject : MonoBehaviour
 
             if (Input.GetAxis("Horizontal") > 0)
             {
-                Debug.Log("move");
                 transform.localPosition += new Vector3(1, 0, 0) * speed;
             }
             else if (Input.GetAxis("Horizontal") < 0)

@@ -62,16 +62,13 @@ public class GhostController : MonoBehaviour
         
 
 
-//        //boo!
-//       // Instantiate(new ObjectTrigger(), this.transform);
-//        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
-//        foreach (GameObject target in people)
-//        {
-//            float distance = Vector3.Distance(target.transform.position, transform.position);
-//            if (distance < 5)//5 is arbitrary range, requires ingame testing
-//            {
-//                target.GetComponent<Person>().status = "gtfo";
-//            }
-//        }    }
+       //boo!
+       // Instantiate(new ObjectTrigger(), this.transform);
+        GameObject[] people = GameObject.FindGameObjectsWithTag("NPC");
+        foreach (GameObject target in people)
+        {            float distance = Vector3.Distance(target.transform.position, transform.position);
+            if (distance < 5)//5 is arbitrary range, requires ingame testing/            {
+                target.GetComponent<Person>().status = "gtfo";
+            }
+        }
     }
-}
