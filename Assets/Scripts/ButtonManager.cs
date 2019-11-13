@@ -49,9 +49,8 @@ public class ButtonManager : MonoBehaviour
 
         else
         {
-            controlsMenu.SetActive(false);
-            controlsButtonPressed = false;
             StartCoroutine(FadeOut(controlsMenu));
+            controlsButtonPressed = false;
         }
     }
 
@@ -66,9 +65,8 @@ public class ButtonManager : MonoBehaviour
 
         else
         {
-            creditsMenu.SetActive(false);
-            creditsButtonPressed = false;
             StartCoroutine(FadeOut(creditsMenu));
+            creditsButtonPressed = false;
         }
     }
 
@@ -100,7 +98,8 @@ public class ButtonManager : MonoBehaviour
             menu.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(1, 0, blend);
             yield return null;
         }
-        
+
+        menu.SetActive(false);
     }
 
 }

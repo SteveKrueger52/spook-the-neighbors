@@ -840,12 +840,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1272398004 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6327404020892207169, guid: 9325bb436a8df4cccaff0030cb2d533b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6427111640130620090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1370282021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1445,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1272398004}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4962771169051976536, guid: 6e39547109a30428da4aa35afdf9289a,
         type: 3}
@@ -1496,7 +1490,7 @@ PrefabInstance:
     - target: {fileID: 4962771169051976537, guid: 6e39547109a30428da4aa35afdf9289a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4962771169051976537, guid: 6e39547109a30428da4aa35afdf9289a,
         type: 3}
@@ -1512,6 +1506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962771169684493602, guid: 6e39547109a30428da4aa35afdf9289a,
+        type: 3}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e39547109a30428da4aa35afdf9289a, type: 3}
