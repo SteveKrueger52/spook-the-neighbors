@@ -15,6 +15,7 @@ public class HauntableObject : MonoBehaviour
     public virtual void OnStart() { }
     public virtual void OnBoo() { }
     public virtual void OnHide() { }
+    public virtual void Investigate() { }
 
    // private ObjectTrigger triggerscript;
 

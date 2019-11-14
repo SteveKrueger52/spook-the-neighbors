@@ -26,14 +26,14 @@ public class GhostController : MonoBehaviour
         if (Input.GetButtonDown("Hide"))
         {
             Color temp = GetComponent<SpriteRenderer>().color;
-            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 50);
+            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 0.5f);
             hidden = true;
         }
 
         if (Input.GetButtonUp("Hide"))
         {
             Color temp = GetComponent<SpriteRenderer>().color;
-            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 255);
+            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 1);
             hidden = false;
         }
 
