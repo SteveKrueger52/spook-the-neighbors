@@ -10,7 +10,7 @@ public class AIPatrol : MonoBehaviour
 
     public Person PersonScript;
 
-   
+    bool StopWalking;
 
     Vector2 MoveSpot, Target;
 
@@ -21,9 +21,11 @@ public class AIPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         Y = transform.position.y;
         X = Random.Range(MinX, MaxX);
-       
+
+        StopWalking = false;
 
         PersonScript = GetComponent<Person>();
      
@@ -33,46 +35,33 @@ public class AIPatrol : MonoBehaviour
     void Update()
     {
 
-
-
         if (PersonScript.status == "idle")
         {
            Patrol();
         }
 
-        if (PersonScript.status == "investigate")
+        else if (PersonScript.status == "investigate")
         {
             Investigate();
         }
 
-        if(PersonScript.status == "gtfo")
-        {
-            GTFO();
-        }
-
-        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
-
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+  
+
+
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "HauntableObject" )
         {
             objecttriggerscript = collision.gameObject.GetComponent<ObjectTrigger>();
 
             if (objecttriggerscript.isTriggered)
             {
-                if (Vector2.Distance(transform.position, objecttriggerscript.gameObject.transform.position) > 5f)
-                {
-                    PersonScript.status = "investigate";
-                }
-
-                if (Vector2.Distance(transform.position, objecttriggerscript.gameObject.transform.position) <= 5f)
-                {
-                    PersonScript.status = "gtfo";
-                }
-
-
+                //StopWalking = true;
+                PersonScript.status = "investigate";
 
             }
         }
@@ -110,7 +99,8 @@ public class AIPatrol : MonoBehaviour
     void Patrol()
     {
         MoveSpot = new Vector2(X, Y);
-        
+        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
+
 
         if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
         {
@@ -131,28 +121,22 @@ public class AIPatrol : MonoBehaviour
     void Investigate()
     {
         MoveSpot = new Vector2(Target.x, Y);
+        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
 
         
 
         if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
         {
+            
             objecttriggerscript.isTriggered = false;
-            StartCoroutine(WaitForReach());
+            PersonScript.status = "idle";
 
         }
 
     }
 
-    void GTFO()
-    {
-        MoveSpot = new Vector2(PersonScript.GetClosestExit().transform.position.x, Y);
-    }
+   
 
-    IEnumerator WaitForReach()
-    {
-        yield return new WaitForSeconds(5f);
-        PersonScript.status = "idle";
-
-    }
+   
 
 }

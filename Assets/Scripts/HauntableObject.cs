@@ -7,6 +7,7 @@ public class HauntableObject : MonoBehaviour
 {
     public bool isHaunted = false;
     public bool isHighlighted = false;
+    public bool isTriggered = false;
     public float speed = 0;
     public GameObject ghost;
     public Color highlight_color = new Color(0,255,0,255);

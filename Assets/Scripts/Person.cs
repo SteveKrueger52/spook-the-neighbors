@@ -1,9 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Person : MonoBehaviour
 {
+
+    [SerializeField]
+    float MinX, MaxX, WaitTime, InitWait;
+
+    Vector2 MoveSpot,Target;
+
+    HauntableObject HauntableScript;
+
+    float X, Y;
+
+    public GameObject StatusPanel;
+
+    public Text StatusText;
+
+
     public float speed;
     public float fear = 0;
     public float maxFear = 100;
@@ -16,6 +32,8 @@ public class Person : MonoBehaviour
     void Start()
     {
         exits = new List<GameObject>(GameObject.FindGameObjectsWithTag("Exit"));
+        Y = transform.position.y;
+        X = Random.Range(MinX, MaxX);
     }
 
     // Update is called once per frame
@@ -23,15 +41,41 @@ public class Person : MonoBehaviour
     {
         if (status == "idle")
         {
+            Patrol();
+            StatusPanel.SetActive(false);
             //idle behavior here
         } else if (status == "investigate")
         {
+            StatusPanel.SetActive(true);
+            StatusText.text = "?";
+            Investigate();
             //investigate behavior here
         } else if (status == "gtfo")
         {
+            StatusPanel.SetActive(true);
+            StatusText.text = "!";
             //gtfo behvaior here
-            
+
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "HauntableObject")
+        {
+            HauntableScript = collision.gameObject.GetComponent<HauntableObject>();
+
+            if (HauntableScript.isTriggered)
+            {
+                //StopWalking = true;
+                status = "investigate";
+
+            }
+        }
+
+        Target = collision.gameObject.transform.position;
+
     }
 
     public void Scare(float fright)
@@ -50,6 +94,46 @@ public class Person : MonoBehaviour
               Vector2.Distance(this.transform.position, b.transform.position));
         });
         return exits[0];
+    }
+
+
+    void Patrol()
+    {
+        MoveSpot = new Vector2(X, Y);
+        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
+
+
+        if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
+        {
+            if (WaitTime <= 0)
+            {
+                X = Random.Range(MinX, MaxX);
+                WaitTime = InitWait;
+            }
+
+            else
+            {
+                WaitTime -= Time.deltaTime;
+
+            }
+        }
+    }
+
+    void Investigate()
+    {
+        MoveSpot = new Vector2(Target.x, Y);
+        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
+
+
+
+        if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
+        {
+
+            HauntableScript.isTriggered = false;
+            status = "idle";
+
+        }
+
     }
 
 }

@@ -6,17 +6,17 @@ using UnityEngine;
 
 public class Television : HauntableObject
 {
-    private ObjectTrigger triggerscripttv;
+    
     // Start is called before the first frame update
     public override void OnStart()
     {
-        triggerscripttv = GetComponent<ObjectTrigger>();
+       
     }
 
     public override void OnBoo()
     {
-        triggerscripttv.isTriggered = !triggerscripttv.isTriggered;
-        
+
+        isTriggered = true;
         Instantiate(new ObjectTrigger(), this.transform);
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
