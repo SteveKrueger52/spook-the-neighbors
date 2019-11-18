@@ -11,6 +11,11 @@ public class HauntableObject : MonoBehaviour
     public GameObject ghost;
     public Color highlight_color = new Color(0,255,0,255);
 
+    public string AText = "";
+    public string BText = "";
+    public string YText = "";
+    public string XText = "";
+
     public virtual void OnInteract() { }
     public virtual void OnStart() { }
     public virtual void OnBoo() { }
