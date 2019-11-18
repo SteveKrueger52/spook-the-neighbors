@@ -18,6 +18,8 @@ public class Television : HauntableObject
 
         isTriggered = true;
         Instantiate(new ObjectTrigger(), this.transform);
+        this.isTriggered = !this.isTriggered;
+
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
         {

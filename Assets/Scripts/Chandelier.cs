@@ -12,12 +12,13 @@ public class Chandelier : HauntableObject
        
     }
 
-    public override void OnBoo()
+    IEnumerator Crash()
     {
 
         isTriggered = true;
-        //fall
-        Instantiate(new ObjectTrigger(), this.transform);
+        //Instantiate(new ObjectTrigger(), this.transform);
+        yield return new WaitForSeconds(1);
+        
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
         {
@@ -29,5 +30,14 @@ public class Chandelier : HauntableObject
         }
         Unhaunt();
         gameObject.SetActive(false);
+    }
+
+    public override void OnBoo()
+    {
+        //new WaitForSeconds(1);
+        this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        //Instantiate(new ObjectTrigger(), this.transform);
+        StartCoroutine(Crash());
+
     }
 }
