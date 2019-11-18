@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BehaviorTrees
@@ -284,12 +285,34 @@ namespace BehaviorTrees
          * Conditions generally check for specific circumstances (ie: Line of Sight)
          * Actions generally act on and change relevant variables (ie: Motion)
         /*/ // -------------------------------------------------------------------------------
-        public class Condition<T> : BehaviorTree
+        public class ConditionEqual<T> : BehaviorTree 
         {
             private T expected;
-            private T actual;
-            public Condition(Hashtable blackboard, T expected, Delegate comparator, T actual) : base(blackboard)
+            private string key;
+            private int comparator;
+            public ConditionEqual(Hashtable blackboard, string key, T expected, int comparator) : base(blackboard)
             {
+                this.expected = expected;
+                this.key = key;
+                this.comparator = comparator;
+            }
+
+            public override int subExecute()
+            {
+                if (bb.ContainsKey(key) && bb[key] != null && typeof(IComparable).IsAssignableFrom(typeof(T)))
+                {
+                    IComparable actual = (IComparable)(T) bb[key];
+                    int result = actual.CompareTo((IComparable)expected);
+
+
+                    if (comparator == 0 && result == 0) // Check for Equality
+                        return SUCCESS;
+                    if (comparator > 0 && result > 0) // Check Greater Than
+                        return SUCCESS;
+                    if (comparator < 0 && result < 0) // Check Less Than
+                        return SUCCESS;
+                }
+                return FAIL;
             }
         }
 
