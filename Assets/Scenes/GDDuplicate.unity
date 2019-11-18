@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 326092836}
   - component: {fileID: 326092835}
   - component: {fileID: 326092834}
+  - component: {fileID: 326092837}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -474,7 +475,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 105
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -506,6 +507,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326092837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326092833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279e34e5c72a9754e890f241bd6fc36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Targets:
+  - {fileID: 1840739429}
+  Offset: {x: 0, y: 0, z: -3.71}
 --- !u!1 &671105013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1608,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1840739429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6327404020892207169, guid: 9325bb436a8df4cccaff0030cb2d533b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6427111640130620090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1841787231
 PrefabInstance:
   m_ObjectHideFlags: 0
