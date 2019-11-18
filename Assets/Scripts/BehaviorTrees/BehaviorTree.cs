@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace BehaviorTrees
@@ -283,9 +284,11 @@ namespace BehaviorTrees
          * Conditions generally check for specific circumstances (ie: Line of Sight)
          * Actions generally act on and change relevant variables (ie: Motion)
         /*/ // -------------------------------------------------------------------------------
-        public abstract class Condition : BehaviorTree
+        public class Condition<T> : BehaviorTree
         {
-            public Condition(Hashtable blackboard) : base(blackboard)
+            private T expected;
+            private T actual;
+            public Condition(Hashtable blackboard, T expected, Delegate comparator, T actual) : base(blackboard)
             {
             }
         }
