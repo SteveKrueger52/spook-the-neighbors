@@ -26,14 +26,14 @@ public class GhostController : MonoBehaviour
         if (Input.GetButtonDown("Hide"))
         {
             Color temp = GetComponent<SpriteRenderer>().color;
-            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 50);
+            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 0.5f);
             hidden = true;
         }
 
         if (Input.GetButtonUp("Hide"))
         {
             Color temp = GetComponent<SpriteRenderer>().color;
-            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 255);
+            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 1);
             hidden = false;
         }
 
@@ -43,16 +43,18 @@ public class GhostController : MonoBehaviour
             .CompareTo(
               Vector2.Distance(this.transform.position, b.transform.position));
         });
-        hauntables[0].GetComponent <HauntableObject>().isHighlighted = true;
+        
         foreach (GameObject i in hauntables)
         {
             HauntableObject obj = i.GetComponent<HauntableObject>();
-            if (Vector2.Distance(this.transform.position, obj.transform.position) < hauntRange) //5 is arbitrary range, requires ingame testing
-                obj.GetComponent<HauntableObject>().isHighlighted = true;
-            else
-                obj.isHighlighted = false;
+            obj.isHighlighted = false;
         }
-        
+        if (Vector2.Distance(this.transform.position, hauntables[0].transform.position) < hauntRange)
+        {
+            //if (this.GetComponent<BoxCollider2D>().Distance(hauntables[0].GetComponent<BoxCollider2D>()).distance < hauntRange)
+            hauntables[0].GetComponent<HauntableObject>().isHighlighted = true;
+        }
+
     }
 
     void boo()
@@ -60,16 +62,13 @@ public class GhostController : MonoBehaviour
         
 
 
-//        //boo!
-//       // Instantiate(new ObjectTrigger(), this.transform);
-//        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
-//        foreach (GameObject target in people)
-//        {
-//            float distance = Vector3.Distance(target.transform.position, transform.position);
-//            if (distance < 5)//5 is arbitrary range, requires ingame testing
-//            {
-//                target.GetComponent<Person>().status = "gtfo";
-//            }
-//        }    }
+       //boo!
+       // Instantiate(new ObjectTrigger(), this.transform);
+        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
+        foreach (GameObject target in people)
+        {            float distance = Vector3.Distance(target.transform.position, transform.position);
+            if (distance < 5)//5 is arbitrary range, requires ingame testing/            {
+                target.GetComponent<Person>().status = "gtfo";
+            }
+        }
     }
-}

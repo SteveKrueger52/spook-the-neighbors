@@ -7,14 +7,21 @@ public class HauntableObject : MonoBehaviour
 {
     public bool isHaunted = false;
     public bool isHighlighted = false;
+    public bool isTriggered = false;
     public float speed = 0;
     public GameObject ghost;
     public Color highlight_color = new Color(0,255,0,255);
+
+    public string AText = "";
+    public string BText = "";
+    public string YText = "";
+    public string XText = "";
 
     public virtual void OnInteract() { }
     public virtual void OnStart() { }
     public virtual void OnBoo() { }
     public virtual void OnHide() { }
+    public virtual void Investigate() { }
 
    // private ObjectTrigger triggerscript;
 
@@ -67,7 +74,6 @@ public class HauntableObject : MonoBehaviour
 
             if (Input.GetAxis("Horizontal") > 0)
             {
-                Debug.Log("move");
                 transform.localPosition += new Vector3(1, 0, 0) * speed;
             }
             else if (Input.GetAxis("Horizontal") < 0)
