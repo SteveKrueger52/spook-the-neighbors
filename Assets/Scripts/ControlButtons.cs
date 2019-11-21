@@ -18,6 +18,10 @@ public class ControlButtons : MonoBehaviour
     void Start()
     {
         gc = ghost.GetComponent<GhostController>();
+        DeactivateButton(ui_y);
+        DeactivateButton(ui_x);
+        DeactivateButton(ui_a);
+        DeactivateButton(ui_b);
     }
 
     // Update is called once per frame
@@ -33,15 +37,6 @@ public class ControlButtons : MonoBehaviour
             DeactivateButton(ui_x);
         }
 
-        if (!gc.hidden)
-        {
-            ActivateButton(ui_a);
-        }
-
-        else
-        {
-            DeactivateButton(ui_a);
-        }
     }
 
 
