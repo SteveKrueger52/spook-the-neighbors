@@ -58,8 +58,6 @@ public class GhostController : MonoBehaviour
     void boo()
     {
         
-
-
 //        //boo!
 //       // Instantiate(new ObjectTrigger(), this.transform);
 //        GameObject[] people = GameObject.FindGameObjectsWithTag("Person");

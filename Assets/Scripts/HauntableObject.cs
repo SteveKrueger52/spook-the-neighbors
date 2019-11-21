@@ -11,6 +11,7 @@ public class HauntableObject : MonoBehaviour
     public float speed = 0;
     public GameObject ghost;
     public Color highlight_color = new Color(0,255,0,255);
+    
 
     public virtual void OnInteract() { }
     public virtual void OnStart() { }
