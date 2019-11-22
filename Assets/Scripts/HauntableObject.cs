@@ -83,7 +83,7 @@ public class HauntableObject : MonoBehaviour
         }
     }
 
-    void Haunt()
+    public void Haunt()
     {
         isHaunted = true;
         ghost.SetActive(false);

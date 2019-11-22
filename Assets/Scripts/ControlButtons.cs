@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class ControlButtons : MonoBehaviour
 {
 
-    public Button ui_y;
-    public Button ui_x;
-    public Button ui_a;
-    public Button ui_b;
+    public Button ui_up;
+    public Button ui_left;
+    public Button ui_down;
+    public Button ui_right;
 
     public GameObject ghost;
     private GhostController gc;
@@ -18,24 +18,25 @@ public class ControlButtons : MonoBehaviour
     void Start()
     {
         gc = ghost.GetComponent<GhostController>();
-        DeactivateButton(ui_y);
-        DeactivateButton(ui_x);
-        DeactivateButton(ui_a);
-        DeactivateButton(ui_b);
+        ActivateButton(ui_up);
+        ActivateButton(ui_left);
+        ActivateButton(ui_down);
+        ActivateButton(ui_right);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gc.hauntables[0].GetComponent<HauntableObject>().isHighlighted)
+        /*if (gc.hauntables[0].GetComponent<HauntableObject>().isHighlighted || gc.hauntables[0].GetComponent<HauntableObject>().isHaunted)
         {
-            ActivateButton(ui_x);
+            ActivateButton(ui_left);
         }
 
         else
         {
-            DeactivateButton(ui_x);
+            DeactivateButton(ui_left);
         }
+        */
 
     }
 
