@@ -67,7 +67,7 @@ public class GhostController : MonoBehaviour
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
         {            float distance = Vector3.Distance(target.transform.position, transform.position);
-            if (distance < 5)//5 is arbitrary range, requires ingame testing/            {
+            if (distance < 5 && target.GetComponent<Person>().fear > 75f)//5 is arbitrary range, requires ingame testing/            {
                 target.GetComponent<Person>().status = "gtfo";
             }
         }

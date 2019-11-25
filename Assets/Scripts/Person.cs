@@ -25,7 +25,7 @@ public class Person : MonoBehaviour
 
     
 
-    public float speed;
+    public float speed, RunSpeed;
     public float fear = 0f;
     public float maxFear = 100f;
     public string status = "idle"; // "idle" "investigate" or "gtfo"
@@ -38,8 +38,8 @@ public class Person : MonoBehaviour
     void Start()
     {
         exits = new List<GameObject>(GameObject.FindGameObjectsWithTag("Exit"));
-        Doors = new List<GameObject>(GameObject.FindGameObjectsWithTag("Door"));
-        Y = transform.position.y;
+       // Doors = new List<GameObject>(GameObject.FindGameObjectsWithTag("Door"));
+       // Y = transform.position.y;
         X = Random.Range(MinX, MaxX);
     }
 
@@ -66,6 +66,7 @@ public class Person : MonoBehaviour
             StatusPanel.SetActive(true);
             StatusText.text = "!";
             //gtfo behvaior here
+            GTFO();
 
         }
     }
@@ -107,28 +108,28 @@ public class Person : MonoBehaviour
         return exits[0];
     }
 
-    public GameObject GetClosestDoor() //this finds closest exit to person on the screen, not necessarily exit with shortest path
-    {
-        Doors.Sort(delegate (GameObject a, GameObject b)
-        {
-            return Vector2.Distance(this.transform.position, a.transform.position)
-            .CompareTo(
-              Vector2.Distance(this.transform.position, b.transform.position));
-        });
+    //public GameObject GetClosestDoor() //this finds closest exit to person on the screen, not necessarily exit with shortest path
+    //{
+    //    Doors.Sort(delegate (GameObject a, GameObject b)
+    //    {
+    //        return Vector2.Distance(this.transform.position, a.transform.position)
+    //        .CompareTo(
+    //          Vector2.Distance(this.transform.position, b.transform.position));
+    //    });
 
-        GhostToDoor = Vector2.Distance(_ghostControllerScript.transform.position, Doors[0].transform.position);
-        PersonToDoor = Vector2.Distance(transform.position, Doors[0].transform.position);
+    //    //GhostToDoor = Vector2.Distance(_ghostControllerScript.transform.position, Doors[0].transform.position);
+    //    //PersonToDoor = Vector2.Distance(transform.position, Doors[0].transform.position);
 
-        if (GhostToDoor < PersonToDoor)
-        {
-            return Doors[1];
-        }
+    //    if (GhostToDoor < PersonToDoor)
+    //    {
+    //        return Doors[1];
+    //    }
 
-        else
-        {
-            return Doors[0];
-        }
-    }
+    //    else
+    //    {
+    //        return Doors[0];
+    //    }
+    //}
 
 
     void Patrol()
@@ -156,8 +157,8 @@ public class Person : MonoBehaviour
     void Investigate()
     {
 
-        if (fear <= 50)
-        {
+        //if (fear <= 50)
+        //{
             MoveSpot = new Vector2(Target.x, Y);
             transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
 
@@ -170,24 +171,39 @@ public class Person : MonoBehaviour
                 status = "idle";
 
             }
-        }
+      //  }
 
-        else if (fear > 50 && fear <= 75 )
+        //else if (fear > 50 && fear <= 75 )
+        //{
+        //    MoveSpot = new Vector2(GetClosestDoor().transform.position.x, Y);
+        //    transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
+
+
+
+        //    if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
+        //    {
+
+        //        //HauntableScript.isTriggered = false;
+        //        status = "idle";
+
+        //    }
+        //}
+
+    }
+
+    void GTFO()
+    {
+        MoveSpot = GetClosestExit().transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, RunSpeed * Time.deltaTime);
+
+
+
+        if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
         {
-            MoveSpot = new Vector2(GetClosestDoor().transform.position.x, Y);
-            transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
 
+            gameObject.SetActive(false);
 
-
-            if ((Vector2.Distance(transform.position, MoveSpot)) < 0.2f)
-            {
-
-                //HauntableScript.isTriggered = false;
-                status = "idle";
-
-            }
         }
-
     }
 
 }

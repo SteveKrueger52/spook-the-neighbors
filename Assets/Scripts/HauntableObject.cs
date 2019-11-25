@@ -9,7 +9,20 @@ public class HauntableObject : MonoBehaviour
     public bool isHighlighted = false;
     public bool isTriggered = false;
     public float speed = 0;
-    public GameObject ghost;
+
+    private GameObject _ghost;
+    public GameObject ghost
+    {
+        get
+        {
+            if (_ghost == null)
+                _ghost = GameObject.Find("Ghost");
+            return _ghost;
+        }
+        set { _ghost = value; }
+    }
+
+
     public Color highlight_color = new Color(0,255,0,255);
     
 
@@ -29,7 +42,7 @@ public class HauntableObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ghost = GameObject.Find("Ghost");
+        
         OnStart();
     }
 
