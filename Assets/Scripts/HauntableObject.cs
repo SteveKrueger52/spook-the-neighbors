@@ -10,13 +10,14 @@ public class HauntableObject : MonoBehaviour
     public bool isTriggered = false;
     public float speed = 0;
     public GameObject ghost;
+    public ControlButtons buttons;
     public Color highlight_color = new Color(0,255,0,255);
     
 
     public string AText = "";
     public string BText = "";
     public string YText = "";
-    public string XText = "";
+    public string XText = "Unhaunt";
 
     public virtual void OnInteract() { }
     public virtual void OnStart() { }
@@ -30,6 +31,7 @@ public class HauntableObject : MonoBehaviour
     void Start()
     {
         ghost = GameObject.Find("Ghost");
+        buttons = GameObject.Find("ButtonPanel").GetComponent<ControlButtons>();
         OnStart();
     }
 

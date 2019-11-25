@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 264008129}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: ButtonPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3031,7 +3031,7 @@ PrefabInstance:
     - target: {fileID: 4962771170381815404, guid: 6e39547109a30428da4aa35afdf9289a,
         type: 3}
       propertyPath: m_Size.x
-      value: 21.455223
+      value: 21.471136
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e39547109a30428da4aa35afdf9289a, type: 3}
