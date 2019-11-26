@@ -9,6 +9,7 @@ TagManager:
   - Exit
   - HauntableObject
   - Person
+  - ButtonPanel
   layers:
   - Default
   - TransparentFX

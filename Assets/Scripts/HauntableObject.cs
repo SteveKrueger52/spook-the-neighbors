@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class HauntableObject : MonoBehaviour
@@ -9,6 +10,7 @@ public class HauntableObject : MonoBehaviour
     public bool isHighlighted = false;
     public bool isTriggered = false;
     public float speed = 0;
+    public ControlButtons buttons;
 
     private GameObject _ghost;
     public GameObject ghost
@@ -42,7 +44,7 @@ public class HauntableObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        buttons = GameObject.FindGameObjectWithTag("ButtonPanel").GetComponent<ControlButtons>();
         OnStart();
     }
 
@@ -101,6 +103,10 @@ public class HauntableObject : MonoBehaviour
     {
         isHaunted = true;
         ghost.SetActive(false);
+        buttons.ui_down.GetComponentInChildren<Text>().text = AText;
+        buttons.ui_left.GetComponentInChildren<Text>().text = XText;
+        buttons.ui_up.GetComponentInChildren<Text>().text = YText;
+        buttons.ui_right.GetComponentInChildren<Text>().text = BText;
     }
 
     public void Unhaunt()
@@ -108,5 +114,9 @@ public class HauntableObject : MonoBehaviour
         isHaunted = false;
         ghost.transform.position = this.gameObject.transform.position;
         ghost.SetActive(true);
+        buttons.ui_down.GetComponentInChildren<Text>().text = "Hide";
+        buttons.ui_left.GetComponentInChildren<Text>().text = "Haunt";
+        buttons.ui_up.GetComponentInChildren<Text>().text = "";
+        buttons.ui_right.GetComponentInChildren<Text>().text = "Boo!";
     }
 }

@@ -669,6 +669,7 @@ RectTransform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 1735385696}
+  - {fileID: 491578304}
   m_Father: {fileID: 1036107949}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -783,14 +784,14 @@ RectTransform:
   m_GameObject: {fileID: 491578303}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 1036107949}
-  m_RootOrder: 7
+  m_Father: {fileID: 483065969}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &491578305
@@ -851,7 +852,7 @@ GameObject:
   - component: {fileID: 586743188}
   - component: {fileID: 586743187}
   m_Layer: 5
-  m_Name: Haunt
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -907,7 +908,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Haunt
+  m_Text: 
 --- !u!222 &586743188
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -943,14 +944,14 @@ RectTransform:
   m_GameObject: {fileID: 652399256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 1036107949}
-  m_RootOrder: 5
+  m_Father: {fileID: 1691332905}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -5}
+  m_AnchoredPosition: {x: 227, y: -20}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &652399258
@@ -1250,7 +1251,7 @@ GameObject:
   - component: {fileID: 1036107950}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: ButtonPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,10 +1271,6 @@ RectTransform:
   - {fileID: 1182294677}
   - {fileID: 483065969}
   - {fileID: 1691332905}
-  - {fileID: 1367374051}
-  - {fileID: 652399257}
-  - {fileID: 1980829249}
-  - {fileID: 491578304}
   m_Father: {fileID: 1396076191}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1366,6 +1363,7 @@ RectTransform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 586743186}
+  - {fileID: 1980829249}
   m_Father: {fileID: 1036107949}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1590,14 +1588,14 @@ RectTransform:
   m_GameObject: {fileID: 1367374050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 1036107949}
-  m_RootOrder: 4
+  m_Father: {fileID: 1405167729}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchoredPosition: {x: 0, y: -51.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1367374052
@@ -1850,6 +1848,7 @@ RectTransform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 1966001543}
+  - {fileID: 1367374051}
   m_Father: {fileID: 1036107949}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2393,6 +2392,7 @@ RectTransform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 1904407039}
+  - {fileID: 652399257}
   m_Father: {fileID: 1036107949}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2492,7 +2492,7 @@ GameObject:
   - component: {fileID: 1735385698}
   - component: {fileID: 1735385697}
   m_Layer: 5
-  m_Name: Boo
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2548,7 +2548,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boo!
+  m_Text: 
 --- !u!222 &1735385698
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2628,6 +2628,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980597324834324955, guid: 007f61def99704da7b3d29bba777c30d,
+        type: 3}
+      propertyPath: AText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980597324834324955, guid: 007f61def99704da7b3d29bba777c30d,
+        type: 3}
+      propertyPath: BText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980597324834324955, guid: 007f61def99704da7b3d29bba777c30d,
+        type: 3}
+      propertyPath: YText
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007f61def99704da7b3d29bba777c30d, type: 3}
@@ -2723,7 +2738,7 @@ GameObject:
   - component: {fileID: 1904407041}
   - component: {fileID: 1904407040}
   m_Layer: 5
-  m_Name: Hide
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2779,7 +2794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hide
+  m_Text: 
 --- !u!222 &1904407041
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2800,7 +2815,7 @@ GameObject:
   - component: {fileID: 1966001545}
   - component: {fileID: 1966001544}
   m_Layer: 5
-  m_Name: Reset
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2856,7 +2871,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reset
+  m_Text: 
 --- !u!222 &1966001545
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2892,14 +2907,14 @@ RectTransform:
   m_GameObject: {fileID: 1980829248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 1036107949}
-  m_RootOrder: 6
+  m_Father: {fileID: 1182294677}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -5}
+  m_AnchoredPosition: {x: -227, y: -20}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1980829250

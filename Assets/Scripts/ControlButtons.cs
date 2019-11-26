@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,26 +19,50 @@ public class ControlButtons : MonoBehaviour
     void Start()
     {
         gc = ghost.GetComponent<GhostController>();
-        ActivateButton(ui_up);
-        ActivateButton(ui_left);
-        ActivateButton(ui_down);
-        ActivateButton(ui_right);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (gc.hauntables[0].GetComponent<HauntableObject>().isHighlighted || gc.hauntables[0].GetComponent<HauntableObject>().isHaunted)
+        if (String.IsNullOrEmpty(ui_up.GetComponentInChildren<Text>().text))
+        {
+            DeactivateButton(ui_up);
+        }
+
+        else if (!String.IsNullOrEmpty(ui_up.GetComponentInChildren<Text>().text))
+        {
+            ActivateButton(ui_up);
+        }
+
+        if (String.IsNullOrEmpty(ui_left.GetComponentInChildren<Text>().text))
+        {
+            DeactivateButton(ui_left);
+        }
+
+        else if (!String.IsNullOrEmpty(ui_left.GetComponentInChildren<Text>().text))
         {
             ActivateButton(ui_left);
         }
 
-        else
+        if (String.IsNullOrEmpty(ui_down.GetComponentInChildren<Text>().text))
         {
-            DeactivateButton(ui_left);
+            DeactivateButton(ui_down);
         }
-        */
 
+        else if (!String.IsNullOrEmpty(ui_down.GetComponentInChildren<Text>().text))
+        {
+            ActivateButton(ui_down);
+        }
+
+        if (String.IsNullOrEmpty(ui_right.GetComponentInChildren<Text>().text))
+        {
+            DeactivateButton(ui_right);
+        }
+
+        else if (!String.IsNullOrEmpty(ui_right.GetComponentInChildren<Text>().text))
+        {
+            ActivateButton(ui_right);
+        }
     }
 
 
