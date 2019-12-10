@@ -2,40 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Piano : HauntableObject
+public class Microwave : HauntableObject
 {
     // Start is called before the first frame update
-    AudioSource[] audios;
-    bool isPlaying = false;
-
     public override void OnStart()
     {
-        audios = GetComponents<AudioSource>();
-    }
 
-    public override void Unhaunt()
-    {
-        isHaunted = false;
-        ghost.transform.position = this.gameObject.transform.position;
-        ghost.SetActive(true);
-        isPlaying = false;
-        audios[0].volume = 1;
-        audios[1].volume = 0;
     }
 
     public override void OnBoo()
     {
-        isPlaying = !isPlaying;
-        if (isPlaying)
-        {
-            audios[0].volume = 0;
-            audios[1].volume = 1;
-        }
-        else
-        {
-            audios[0].volume = 1;
-            audios[1].volume = 0;
-        }
+
         //isTriggered = true;
         //Instantiate(new ObjectTrigger(), this.transform);
         this.isTriggered = !this.isTriggered;
