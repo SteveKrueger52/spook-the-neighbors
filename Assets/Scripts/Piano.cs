@@ -21,6 +21,7 @@ public class Piano : HauntableObject
         isPlaying = false;
         audios[0].volume = 1;
         audios[1].volume = 0;
+        //animate off
     }
 
     public override void OnBoo()
@@ -28,11 +29,13 @@ public class Piano : HauntableObject
         isPlaying = !isPlaying;
         if (isPlaying)
         {
+            //animate on
             audios[0].volume = 0;
             audios[1].volume = 1;
         }
         else
         {
+            //animate off
             audios[0].volume = 1;
             audios[1].volume = 0;
         }
