@@ -1122,7 +1122,7 @@ MonoBehaviour:
   currentText: {fileID: 567446135}
   ghost: {fileID: 519647816}
   gc: {fileID: 0}
-  cat: {fileID: 8796454080902207286, guid: f2c5ca085cc700c42a9441ca99fa3853, type: 3}
+  cat: {fileID: 5717969084955542386, guid: e67d2e760eeb18c4e8dc0de74c191c60, type: 3}
   person: {fileID: 8796454080902207286, guid: f2c5ca085cc700c42a9441ca99fa3853, type: 3}
 --- !u!1 &701098808 stripped
 GameObject:

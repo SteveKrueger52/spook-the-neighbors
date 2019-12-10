@@ -8,9 +8,7 @@ public class TutorialScript : MonoBehaviour
     public Text currentText;
     public GameObject ghost;
     public GhostController gc;
-
     public GameObject cat;
-    public GameObject person;
     
 
     // Start is called before the first frame update
