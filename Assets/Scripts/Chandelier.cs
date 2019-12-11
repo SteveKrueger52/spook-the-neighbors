@@ -23,7 +23,7 @@ public class Chandelier : HauntableObject
         foreach (GameObject target in people)
         {
             float distance = Vector3.Distance(target.transform.position, transform.position);
-            if (distance < 5)//5 is arbitrary range, requires ingame testing
+            if (distance < 10)//5 is arbitrary range, requires ingame testing
             {
                 target.GetComponent<Person>().Scare(20);
             }
