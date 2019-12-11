@@ -32,7 +32,7 @@ public class Chandelier : HauntableObject
         gameObject.SetActive(false);
     }
 
-    public override void OnBoo()
+    public override void OnInteract()
     {
         //new WaitForSeconds(1);
         this.isTriggered = !this.isTriggered;

@@ -150,7 +150,7 @@ MonoBehaviour:
   speed: 0
   highlight_color: {r: 0, g: 255, b: 0, a: 255}
   AText: 
-  BText: 
+  BText: Play
   YText: 
   XText: 
 --- !u!82 &2526141072679812883

@@ -29,7 +29,7 @@ public class HauntableObject : MonoBehaviour
     public string AText = "";
     public string BText = "";
     public string YText = "";
-    public string XText = "";
+    public string XText = "Appear";
 
     public virtual void OnInteract() { }
     public virtual void OnStart() { }

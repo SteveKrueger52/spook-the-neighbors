@@ -148,6 +148,6 @@ MonoBehaviour:
   speed: 0.2
   highlight_color: {r: 0, g: 255, b: 0, a: 255}
   AText: 
-  BText: 
+  BText: Beep
   YText: 
   XText: 

@@ -11,7 +11,7 @@ public class Toaster : HauntableObject
 
     }
 
-    public override void OnBoo()
+    public override void OnInteract()
     {
         if (!toasted)
         {

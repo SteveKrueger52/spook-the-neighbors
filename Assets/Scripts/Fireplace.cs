@@ -11,7 +11,7 @@ public class Fireplace : HauntableObject
 
     }
 
-    public override void OnBoo()
+    public override void OnInteract()
     {
         if (lit)
         {
