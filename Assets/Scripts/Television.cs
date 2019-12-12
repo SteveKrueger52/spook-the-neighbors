@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class Television : HauntableObject
 {
-    
+    private AudioSource sound;
     // Start is called before the first frame update
     public override void OnStart()
     {
-       
+        sound = GetComponent<AudioSource>();
     }
 
     public override void OnBoo()
@@ -19,6 +19,7 @@ public class Television : HauntableObject
         //isTriggered = true;
         //Instantiate(new ObjectTrigger(), this.transform);
         this.isTriggered = !this.isTriggered;
+        sound.Play();
         //animate
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
