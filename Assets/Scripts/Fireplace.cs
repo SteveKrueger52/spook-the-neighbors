@@ -5,19 +5,22 @@ using UnityEngine;
 public class Fireplace : HauntableObject
 {
     bool lit = true;
+    private Animator anim;
+    
     // Start is called before the first frame update
     public override void OnStart()
     {
-
+        anim = gameObject.GetComponent<Animator>();
     }
 
     public override void OnInteract()
     {
         if (lit)
         {
-            //animate
-            this.isTriggered = !this.isTriggered;
-            this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            isTriggered = !isTriggered;
+            anim.SetBool("Triggered", isTriggered);
+            
+            //this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             lit = false;
             GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
             foreach (GameObject target in people)
