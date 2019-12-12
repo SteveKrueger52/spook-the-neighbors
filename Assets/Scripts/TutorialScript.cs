@@ -9,7 +9,7 @@ public class TutorialScript : MonoBehaviour
     public GameObject ghost;
     public GhostController gc;
     public GameObject cat;
-    
+    public GameObject person;
 
     // Start is called before the first frame update
     void Start()
@@ -32,23 +32,27 @@ public class TutorialScript : MonoBehaviour
     
     void part3()
     {
-        Instantiate(cat, new Vector3(Random.Range(1, 10), 0, 0), Quaternion.identity);
+        //Instantiate(cat, new Vector3(Random.Range(1, 10), 0, 0), Quaternion.identity);
+        cat.SetActive(true);
         currentText.text = "Look, a cat just wandered into your home! Why don't you spook it?";
         StartCoroutine(pause(3, part4));
     }
 
     void part4()
     {
-        currentText.text = "Float up to the TV and press X";
-        StartCoroutine(WaitForKey(KeyCode.X, part5));
+        currentText.text = "Float up to the cat and press the spacebar.";
+        StartCoroutine(WaitForKey(KeyCode.Space, part5));
     }
 
     void part5()
     {
-        if (gc.hidden == true)
-        {
+        currentText.text = "Whoa, that was one scaredy cat! Good work! But it seemed like that cat was already scared of something...";
+        StartCoroutine(pause(4, part6));
+    }
 
-        }
+    void part6()
+    {
+
     }
 
     IEnumerator WaitForKey(KeyCode kc, System.Action func)

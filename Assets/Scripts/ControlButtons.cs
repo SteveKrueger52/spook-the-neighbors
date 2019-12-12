@@ -12,54 +12,63 @@ public class ControlButtons : MonoBehaviour
     public Button ui_down;
     public Button ui_right;
 
-    public GameObject ghost;
-    private GhostController gc;
+    private Text cText;
+    private Text xText;
+    private Text spaceText;
+    private Text zText;
+
+    //public GameObject ghost;
+    //private GhostController gc;
 
     // Start is called before the first frame update
     void Start()
     {
-        gc = ghost.GetComponent<GhostController>();
+        //gc = ghost.GetComponent<GhostController>();
+        cText = GameObject.FindGameObjectWithTag("CText").GetComponent<Text>();
+        xText = GameObject.FindGameObjectWithTag("XText").GetComponent<Text>();
+        spaceText = GameObject.FindGameObjectWithTag("SpaceText").GetComponent<Text>();
+        zText = GameObject.FindGameObjectWithTag("ZText").GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (String.IsNullOrEmpty(ui_up.GetComponentInChildren<Text>().text))
+        if (String.IsNullOrEmpty(cText.text))
         {
             DeactivateButton(ui_up);
         }
 
-        else if (!String.IsNullOrEmpty(ui_up.GetComponentInChildren<Text>().text))
+        else if (!String.IsNullOrEmpty(cText.text))
         {
             ActivateButton(ui_up);
         }
 
-        if (String.IsNullOrEmpty(ui_left.GetComponentInChildren<Text>().text))
+        if (String.IsNullOrEmpty(xText.text))
         {
             DeactivateButton(ui_left);
         }
 
-        else if (!String.IsNullOrEmpty(ui_left.GetComponentInChildren<Text>().text))
+        else if (!String.IsNullOrEmpty(xText.text))
         {
             ActivateButton(ui_left);
         }
 
-        if (String.IsNullOrEmpty(ui_down.GetComponentInChildren<Text>().text))
+        if (String.IsNullOrEmpty(spaceText.text))
         {
             DeactivateButton(ui_down);
         }
 
-        else if (!String.IsNullOrEmpty(ui_down.GetComponentInChildren<Text>().text))
+        else if (!String.IsNullOrEmpty(spaceText.text))
         {
             ActivateButton(ui_down);
         }
 
-        if (String.IsNullOrEmpty(ui_right.GetComponentInChildren<Text>().text))
+        if (String.IsNullOrEmpty(zText.text))
         {
             DeactivateButton(ui_right);
         }
 
-        else if (!String.IsNullOrEmpty(ui_right.GetComponentInChildren<Text>().text))
+        else if (!String.IsNullOrEmpty(zText.text))
         {
             ActivateButton(ui_right);
         }
