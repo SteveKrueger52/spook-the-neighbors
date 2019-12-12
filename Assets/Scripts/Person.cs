@@ -24,7 +24,9 @@ public class Person : MonoBehaviour
 
     public List<string> ScaredObjects;
 
-    
+    public AudioSource scream;
+
+    public bool screamed = false;
 
 
     
@@ -46,6 +48,7 @@ public class Person : MonoBehaviour
        // Y = transform.position.y;
         X = Random.Range(MinX, MaxX);
         ScaredObjects = new List<string>();
+        scream = GetComponent<AudioSource>();
         
     }
 
@@ -69,6 +72,13 @@ public class Person : MonoBehaviour
             
         } else if (status == "gtfo")
         {
+            //Debug.Log("SCREAM");
+            if (!screamed)
+            {
+                scream.Play();
+                screamed = true;
+            }
+            
             StatusPanel.SetActive(true);
             StatusText.text = "!";
             //gtfo behvaior here

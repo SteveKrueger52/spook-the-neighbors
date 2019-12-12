@@ -9,7 +9,7 @@ public class GhostController : MonoBehaviour
     public List<GameObject> hauntables = new List<GameObject>();
     public bool hidden = false;
     public float hauntRange = 0.1f;
-
+    public AudioSource booSound;
     
 
 
@@ -75,7 +75,7 @@ public class GhostController : MonoBehaviour
 
     void boo()
     {
-
+        booSound.Play();
         //boo!
         // Instantiate(new ObjectTrigger(), this.transform);
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
