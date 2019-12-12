@@ -16,6 +16,9 @@ public class HauntableObject : MonoBehaviour
     private Text spaceText;
     private Text zText;
 
+    public List<string> ScaredObjectderived;
+
+
     private GameObject _ghost;
     public GameObject ghost
     {
@@ -55,6 +58,8 @@ public class HauntableObject : MonoBehaviour
         zText = GameObject.FindGameObjectWithTag("ZText").GetComponent<Text>();
 
         OnStart();
+        ScaredObjectderived = GameObject.FindGameObjectWithTag("Person").GetComponent<Person>().ScaredObjects;
+
     }
 
     // Update is called once per frame

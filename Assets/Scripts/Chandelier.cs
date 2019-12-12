@@ -17,7 +17,9 @@ public class Chandelier : HauntableObject
 
         //isTriggered = true;
         //Instantiate(new ObjectTrigger(), this.transform);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
+        this.isTriggered = !this.isTriggered;
+
 
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
@@ -25,7 +27,10 @@ public class Chandelier : HauntableObject
             float distance = Vector3.Distance(target.transform.position, transform.position);
             if (distance < 10)//5 is arbitrary range, requires ingame testing
             {
-                target.GetComponent<Person>().Scare(20);
+              //  target.GetComponent<Person>().TriggerFunction(this.gameObject);
+
+                target.GetComponent<Person>().Scare(20, this.name);
+           
             }
         }
         Unhaunt();
