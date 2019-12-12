@@ -6,10 +6,12 @@ public class Toaster : HauntableObject
 {
     bool toasted = false;
     private Animator anim;
+    private AudioSource sound;
     
     // Start is called before the first frame update
     public override void OnStart()
     {
+        sound = GetComponent<AudioSource>();
         anim = gameObject.GetComponent<Animator>();
     }
 
@@ -32,6 +34,7 @@ public class Toaster : HauntableObject
         {
             isTriggered = !isTriggered;
             anim.SetBool("Triggered", isTriggered);
+            sound.Play();
             
             //gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             toasted = true;
