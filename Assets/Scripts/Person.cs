@@ -42,7 +42,7 @@ public class Person : MonoBehaviour
     void Start()
     {
         exits = new List<GameObject>(GameObject.FindGameObjectsWithTag("Exit"));
-        Doors = new List<GameObject>(GameObject.FindGameObjectsWithTag("Door"));
+        //Doors = new List<GameObject>(GameObject.FindGameObjectsWithTag("Door"));
        // Y = transform.position.y;
         X = Random.Range(MinX, MaxX);
         ScaredObjects = new List<string>();
