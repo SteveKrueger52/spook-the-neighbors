@@ -46,12 +46,13 @@ public class TutorialScript : MonoBehaviour
     void part5()
     {
         currentText.text = "Whoa, that was one scaredy cat! Good work! But it seemed like that cat was already scared of something... We should try scaring people!";
-        StartCoroutine(pause(4, part6));
+        StartCoroutine(pause(5, part6));
     }
 
     void part6()
     {
         person.SetActive(true);
+        person.GetComponent<Person>().Scare(60);
         currentText.text = "How convenient, someone just walked in! They don't seem too afraid yet, but you can fix that. Float up to the TV and press X.";
         StartCoroutine(WaitForKey(KeyCode.X, part7));
     }

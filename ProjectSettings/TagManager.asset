@@ -10,6 +10,10 @@ TagManager:
   - HauntableObject
   - Person
   - ButtonPanel
+  - CText
+  - XText
+  - SpaceText
+  - ZText
   layers:
   - Default
   - TransparentFX
