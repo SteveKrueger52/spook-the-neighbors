@@ -11,10 +11,10 @@ public class HauntableObject : MonoBehaviour
     public bool isTriggered = false;
     public float speed = 0;
     //public ControlButtons buttons;
-    private Text cText;
-    private Text xText;
-    private Text spaceText;
-    private Text zText;
+    public Text cText;
+    public Text xText;
+    public Text spaceText;
+    public Text zText;
 
     public List<string> ScaredObjectderived;
 
@@ -132,7 +132,7 @@ public class HauntableObject : MonoBehaviour
         ghost.SetActive(true);
 
         cText.text = "";
-        xText.text = "Haunt";
+        xText.text = "";
         spaceText.text = "Boo!";
         zText.text = "Hide";
     }
