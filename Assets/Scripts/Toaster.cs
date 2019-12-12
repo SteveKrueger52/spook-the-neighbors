@@ -20,11 +20,9 @@ public class Toaster : HauntableObject
         anim.SetBool("Haunted", isHaunted);
     }
     
-    public override void Unhaunt()
+    public override void OnUnHaunt()
     {
-        isHaunted = false;
-        ghost.transform.position = this.gameObject.transform.position;
-        ghost.SetActive(true);
+        
         anim.SetBool("Haunted", isHaunted);
     }
     

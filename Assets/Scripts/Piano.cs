@@ -16,11 +16,8 @@ public class Piano : HauntableObject
         _renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
-    public override void Unhaunt()
+    public override void OnUnHaunt()
     {
-        isHaunted = false;
-        ghost.transform.position = this.gameObject.transform.position;
-        ghost.SetActive(true);
         isPlaying = false;
         anim.SetBool("Active", false);
         audios[0].volume = 1;

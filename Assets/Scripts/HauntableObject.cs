@@ -47,6 +47,7 @@ public class HauntableObject : MonoBehaviour
     public virtual void OnHide() { }
     public virtual void Investigate() { }
     public virtual void OnHaunt() { }
+    public virtual void OnUnHaunt() { }
 
     // private ObjectTrigger triggerscript;
 
@@ -126,7 +127,7 @@ public class HauntableObject : MonoBehaviour
         OnHaunt();
     }
 
-    public virtual void Unhaunt()
+    public void Unhaunt()
     {
         isHaunted = false;
         ghost.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -1);
@@ -136,5 +137,6 @@ public class HauntableObject : MonoBehaviour
         xText.text = "";
         spaceText.text = "Boo!";
         zText.text = "Hide";
+        OnUnHaunt();
     }
 }
