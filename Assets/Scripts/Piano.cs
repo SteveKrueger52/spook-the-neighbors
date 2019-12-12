@@ -6,11 +6,14 @@ public class Piano : HauntableObject
 {
     // Start is called before the first frame update
     AudioSource[] audios;
+    private Animator anim;
     bool isPlaying = false;
 
     public override void OnStart()
     {
+        anim = gameObject.GetComponent<Animator>();
         audios = GetComponents<AudioSource>();
+        _renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     public override void Unhaunt()
@@ -19,6 +22,7 @@ public class Piano : HauntableObject
         ghost.transform.position = this.gameObject.transform.position;
         ghost.SetActive(true);
         isPlaying = false;
+        anim.SetBool("Active", false);
         audios[0].volume = 1;
         audios[1].volume = 0;
         //animate off
@@ -30,12 +34,14 @@ public class Piano : HauntableObject
         if (isPlaying)
         {
             //animate on
+            anim.SetBool("Active", true);
             audios[0].volume = 0;
             audios[1].volume = 1;
         }
         else
         {
             //animate off
+            anim.SetBool("Active", false);
             audios[0].volume = 1;
             audios[1].volume = 0;
         }

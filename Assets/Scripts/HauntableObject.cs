@@ -15,6 +15,7 @@ public class HauntableObject : MonoBehaviour
     public Text xText;
     public Text spaceText;
     public Text zText;
+    protected SpriteRenderer _renderer;
 
     public List<string> ScaredObjectderived;
 
@@ -45,12 +46,14 @@ public class HauntableObject : MonoBehaviour
     public virtual void OnBoo() { }
     public virtual void OnHide() { }
     public virtual void Investigate() { }
+    public virtual void OnHaunt() { }
 
-   // private ObjectTrigger triggerscript;
+    // private ObjectTrigger triggerscript;
 
     // Start is called before the first frame update
     void Start()
     {
+        _renderer = gameObject.GetComponent<SpriteRenderer>();
         //buttons = GameObject.FindGameObjectWithTag("ButtonPanel").GetComponent<ControlButtons>();
         cText = GameObject.FindGameObjectWithTag("CText").GetComponent<Text>();
         xText = GameObject.FindGameObjectWithTag("XText").GetComponent<Text>();
@@ -67,13 +70,11 @@ public class HauntableObject : MonoBehaviour
     {
         if (isHighlighted)
         {
-            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
-            renderer.color = highlight_color;
+            _renderer.color = highlight_color;
         }
         else
-        {
-            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
-            renderer.color = new Color(255,255,255,255);
+        { 
+            _renderer.color = new Color(255,255,255,255);
         }
             
             

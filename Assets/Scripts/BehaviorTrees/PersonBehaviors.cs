@@ -34,25 +34,25 @@ namespace BehaviorTrees
                 // RUN subtree
                 new BehaviorTree.BranchTask.Sequence(bb, new BehaviorTree[]
                 {
-                    
+                    new BehaviorTree.Decorator.AlwaysFail(bb, new BehaviorTree.EmptyTree(bb)) 
                 }), 
                 
                 // CHASE subtree
                 new BehaviorTree.BranchTask.Sequence(bb, new BehaviorTree[]
                 {
-                    
+                    new BehaviorTree.Decorator.AlwaysFail(bb, new BehaviorTree.EmptyTree(bb))
                 }), 
                 
                 // SEES GHOST subtree
                 new BehaviorTree.BranchTask.Sequence(bb, new BehaviorTree[]
                 {
-                    
+                    new BehaviorTree.Decorator.AlwaysFail(bb, new BehaviorTree.EmptyTree(bb)) 
                 }), 
                 
                 // INVESTIGATE subtree
                 new BehaviorTree.BranchTask.Sequence(bb, new BehaviorTree[]
                 {
-                    
+                    new BehaviorTree.Decorator.AlwaysFail(bb, new BehaviorTree.EmptyTree(bb)) 
                 }), 
                 
                 // IDLE subtree

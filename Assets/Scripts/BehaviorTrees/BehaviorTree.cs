@@ -46,6 +46,17 @@ namespace BehaviorTrees
         }
 
 
+        public class EmptyTree : BehaviorTree
+        {
+            public EmptyTree(Hashtable blackboard) : base(blackboard) {}
+
+            public override int subExecute()
+            {
+                return SUCCESS;
+            }
+        }
+        
+        
         /*/// - Behavior Tree > BranchTask ----------------------------------------------------
          * The Base Class for all branching nodes.
          * Each type of branching node has a list of tasks that it attempts in some sequence,
@@ -290,6 +301,7 @@ namespace BehaviorTrees
             private T expected;
             private string key;
             private int comparator;
+            
             public ConditionEqual(Hashtable blackboard, string key, T expected, int comparator) : base(blackboard)
             {
                 this.expected = expected;
