@@ -35,7 +35,7 @@ public class TutorialScript : MonoBehaviour
 
     void part2()
     {
-        currentText.text = "Nice! You just unhaunted an object! Wanna explore a little?";
+        currentText.text = "Nice! You just unhaunted an object! Wanna explore a little? Use the arrow keys to move.";
         StartCoroutine(pause(5, part3));
     }
     
