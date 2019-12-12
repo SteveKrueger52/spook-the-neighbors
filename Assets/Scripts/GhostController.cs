@@ -61,7 +61,7 @@ public class GhostController : MonoBehaviour
         {
             //if (this.GetComponent<BoxCollider2D>().Distance(hauntables[0].GetComponent<BoxCollider2D>()).distance < hauntRange)
             hauntables[0].GetComponent<HauntableObject>().isHighlighted = true;
-            hauntables[0].GetComponent<HauntableObject>().xText.text = "Haunt";
+            hauntables[0].GetComponent<HauntableObject>().xText.text = "Possess";
         }
 
         else
