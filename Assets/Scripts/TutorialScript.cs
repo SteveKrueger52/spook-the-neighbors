@@ -32,7 +32,6 @@ public class TutorialScript : MonoBehaviour
     
     void part3()
     {
-        //Instantiate(cat, new Vector3(Random.Range(1, 10), 0, 0), Quaternion.identity);
         cat.SetActive(true);
         currentText.text = "Look, a cat just wandered into your home! Why don't you spook it?";
         StartCoroutine(pause(3, part4));
@@ -46,11 +45,18 @@ public class TutorialScript : MonoBehaviour
 
     void part5()
     {
-        currentText.text = "Whoa, that was one scaredy cat! Good work! But it seemed like that cat was already scared of something...";
+        currentText.text = "Whoa, that was one scaredy cat! Good work! But it seemed like that cat was already scared of something... We should try scaring people!";
         StartCoroutine(pause(4, part6));
     }
 
     void part6()
+    {
+        person.SetActive(true);
+        currentText.text = "How convenient, someone just walked in! They don't seem too afraid yet, but you can fix that. Float up to the TV and press X.";
+        StartCoroutine(WaitForKey(KeyCode.X, part7));
+    }
+
+    void part7()
     {
 
     }

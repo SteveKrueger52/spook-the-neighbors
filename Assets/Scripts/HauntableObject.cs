@@ -112,11 +112,6 @@ public class HauntableObject : MonoBehaviour
     {
         isHaunted = true;
         ghost.SetActive(false);
-        /*buttons.ui_down.GetComponentInChildren<Text>().text = AText;
-        buttons.ui_left.GetComponentInChildren<Text>().text = XText;
-        buttons.ui_up.GetComponentInChildren<Text>().text = YText;
-        buttons.ui_right.GetComponentInChildren<Text>().text = BText;
-        */
 
         cText.text = YText;
         xText.text = XText;
@@ -128,14 +123,8 @@ public class HauntableObject : MonoBehaviour
     public void Unhaunt()
     {
         isHaunted = false;
-        ghost.transform.position = this.gameObject.transform.position;
+        ghost.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -1);
         ghost.SetActive(true);
-        /*
-        buttons.ui_down.GetComponentInChildren<Text>().text = "Hide";
-        buttons.ui_left.GetComponentInChildren<Text>().text = "Haunt";
-        buttons.ui_up.GetComponentInChildren<Text>().text = "";
-        buttons.ui_right.GetComponentInChildren<Text>().text = "Boo!";
-        */
 
         cText.text = "";
         xText.text = "Haunt";
