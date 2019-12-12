@@ -54,7 +54,7 @@ public class TutorialScript : MonoBehaviour
     void part6()
     {
         person.SetActive(true);
-        person.GetComponent<Person>().Scare(60);
+        person.GetComponent<Person>().Scare(60,"garbagestring");
         currentText.text = "How convenient, someone just walked in! They don't seem too afraid yet, but you can fix that. Float up to the TV and press X.";
         StartCoroutine(WaitForTVHaunt(tv, part7));
     }
