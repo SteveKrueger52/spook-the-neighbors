@@ -109,7 +109,7 @@ public class TutorialScript : MonoBehaviour
 
     void StartGame()
     {
-        SceneManager.LoadScene("GameDemo");
+        SceneManager.LoadScene("GameDemoCopy");
     }
 
     IEnumerator WaitForKey(KeyCode kc, System.Action func)
