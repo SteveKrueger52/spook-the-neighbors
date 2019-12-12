@@ -123,7 +123,7 @@ public class HauntableObject : MonoBehaviour
         xText.text = XText;
         spaceText.text = BText;
         zText.text = AText;
-
+        OnHaunt();
     }
 
     public virtual void Unhaunt()
