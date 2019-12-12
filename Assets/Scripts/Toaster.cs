@@ -5,19 +5,35 @@ using UnityEngine;
 public class Toaster : HauntableObject
 {
     bool toasted = false;
+    private Animator anim;
+    
     // Start is called before the first frame update
     public override void OnStart()
     {
-
+        anim = gameObject.GetComponent<Animator>();
     }
 
+    public override void OnHaunt()
+    {
+        anim.SetBool("Haunted", isHaunted);
+    }
+    
+    public override void Unhaunt()
+    {
+        isHaunted = false;
+        ghost.transform.position = this.gameObject.transform.position;
+        ghost.SetActive(true);
+        anim.SetBool("Haunted", isHaunted);
+    }
+    
     public override void OnInteract()
     {
         if (!toasted)
         {
-            //animate
-            this.isTriggered = !this.isTriggered;
-            this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            isTriggered = !isTriggered;
+            anim.SetBool("Triggered", isTriggered);
+            
+            //gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             toasted = true;
             GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
             foreach (GameObject target in people)

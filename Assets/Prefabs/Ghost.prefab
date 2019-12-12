@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4461239274d54700b8122eb3bd969c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 0.15
   hauntables: []
   hidden: 0
-  hauntRange: 5
+  hauntRange: 1

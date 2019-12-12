@@ -36,6 +36,8 @@ public class HauntableObject : MonoBehaviour
     public virtual void OnBoo() { }
     public virtual void OnHide() { }
     public virtual void Investigate() { }
+    public virtual void OnHaunt() { }
+    public virtual void OnUnHaunt() { }
 
    // private ObjectTrigger triggerscript;
 
@@ -101,6 +103,7 @@ public class HauntableObject : MonoBehaviour
     {
         isHaunted = true;
         ghost.SetActive(false);
+        OnHaunt();
     }
 
     public virtual void Unhaunt()
