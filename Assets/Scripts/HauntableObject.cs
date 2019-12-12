@@ -9,6 +9,7 @@ public class HauntableObject : MonoBehaviour
     public bool isHighlighted = false;
     public bool isTriggered = false;
     public float speed = 0;
+    protected SpriteRenderer _renderer;
 
     private GameObject _ghost;
     public GameObject ghost
@@ -44,7 +45,7 @@ public class HauntableObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _renderer = gameObject.GetComponent<SpriteRenderer>();
         OnStart();
     }
 
@@ -53,13 +54,11 @@ public class HauntableObject : MonoBehaviour
     {
         if (isHighlighted)
         {
-            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
-            renderer.color = highlight_color;
+            _renderer.color = highlight_color;
         }
         else
         {
-            SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
-            renderer.color = new Color(255,255,255,255);
+            _renderer.color = new Color(255,255,255,255);
         }
             
             

@@ -13,6 +13,7 @@ public class Piano : HauntableObject
     {
         anim = gameObject.GetComponent<Animator>();
         audios = GetComponents<AudioSource>();
+        _renderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     public override void Unhaunt()
