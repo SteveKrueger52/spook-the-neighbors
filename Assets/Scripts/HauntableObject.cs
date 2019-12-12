@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class HauntableObject : MonoBehaviour
@@ -9,6 +10,11 @@ public class HauntableObject : MonoBehaviour
     public bool isHighlighted = false;
     public bool isTriggered = false;
     public float speed = 0;
+    //public ControlButtons buttons;
+    private Text cText;
+    private Text xText;
+    private Text spaceText;
+    private Text zText;
 
     public List<string> ScaredObjectderived;
 
@@ -45,7 +51,12 @@ public class HauntableObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //buttons = GameObject.FindGameObjectWithTag("ButtonPanel").GetComponent<ControlButtons>();
+        cText = GameObject.FindGameObjectWithTag("CText").GetComponent<Text>();
+        xText = GameObject.FindGameObjectWithTag("XText").GetComponent<Text>();
+        spaceText = GameObject.FindGameObjectWithTag("SpaceText").GetComponent<Text>();
+        zText = GameObject.FindGameObjectWithTag("ZText").GetComponent<Text>();
+
         OnStart();
         ScaredObjectderived = GameObject.FindGameObjectWithTag("Person").GetComponent<Person>().ScaredObjects;
 
@@ -106,12 +117,23 @@ public class HauntableObject : MonoBehaviour
     {
         isHaunted = true;
         ghost.SetActive(false);
+
+        cText.text = YText;
+        xText.text = XText;
+        spaceText.text = BText;
+        zText.text = AText;
+
     }
 
     public virtual void Unhaunt()
     {
         isHaunted = false;
-        ghost.transform.position = this.gameObject.transform.position;
+        ghost.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -1);
         ghost.SetActive(true);
+
+        cText.text = "";
+        xText.text = "Haunt";
+        spaceText.text = "Boo!";
+        zText.text = "Hide";
     }
 }

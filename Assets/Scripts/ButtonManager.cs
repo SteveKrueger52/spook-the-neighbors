@@ -35,7 +35,7 @@ public class ButtonManager : MonoBehaviour
 
     public void play()
     {
-        SceneManager.LoadScene("GameDemo");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void controls()

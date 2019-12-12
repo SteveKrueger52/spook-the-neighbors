@@ -97,8 +97,9 @@ MonoBehaviour:
   isHighlighted: 0
   isTriggered: 0
   speed: 0
+  buttons: {fileID: 0}
   highlight_color: {r: 0, g: 255, b: 0, a: 255}
   AText: 
   BText: 
-  YText: Reset
-  XText: 
+  YText: 
+  XText: Unhaunt

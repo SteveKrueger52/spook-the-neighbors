@@ -9,7 +9,11 @@ TagManager:
   - Exit
   - HauntableObject
   - Person
-  - Door
+  - ButtonPanel
+  - CText
+  - XText
+  - SpaceText
+  - ZText
   layers:
   - Default
   - TransparentFX
