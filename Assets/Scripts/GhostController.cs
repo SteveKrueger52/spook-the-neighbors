@@ -9,14 +9,16 @@ public class GhostController : MonoBehaviour
     public List<GameObject> hauntables = new List<GameObject>();
     public bool hidden = false;
     public float hauntRange = 0.1f;
+
     
-   
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         hauntables = new List<GameObject>(GameObject.FindGameObjectsWithTag("HauntableObject"));
-      
+
     }
 
     // Update is called once per frame
@@ -26,20 +28,20 @@ public class GhostController : MonoBehaviour
         delta = delta.magnitude > 1 ? delta.normalized : delta;
         transform.localPosition += new Vector3(delta.x, delta.y, 0) * speed;
         if (Input.GetButtonDown("Boo"))
-        {   
+        {
             boo();
         }
         if (Input.GetButtonDown("Hide"))
         {
             Color temp = GetComponent<SpriteRenderer>().color;
-            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 0.5f);
+            GetComponent<SpriteRenderer>().color = new Color(temp.r, temp.g, temp.b, 0.5f);
             hidden = true;
         }
 
         if (Input.GetButtonUp("Hide"))
         {
             Color temp = GetComponent<SpriteRenderer>().color;
-            GetComponent<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b, 1);
+            GetComponent<SpriteRenderer>().color = new Color(temp.r, temp.g, temp.b, 1);
             hidden = false;
         }
 
@@ -49,7 +51,7 @@ public class GhostController : MonoBehaviour
             .CompareTo(
               Vector2.Distance(this.transform.position, b.transform.position));
         });
-        
+
         foreach (GameObject i in hauntables)
         {
             HauntableObject obj = i.GetComponent<HauntableObject>();
@@ -67,20 +69,28 @@ public class GhostController : MonoBehaviour
             hauntables[0].GetComponent<HauntableObject>().xText.text = "";
         }
 
-       
+
 
     }
 
     void boo()
     {
 
-       //boo!
-       // Instantiate(new ObjectTrigger(), this.transform);
+        //boo!
+        // Instantiate(new ObjectTrigger(), this.transform);
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)
-        {            float distance = Vector3.Distance(target.transform.position, transform.position);
-            if (distance < 5 && target.GetComponent<Person>().fear >= 100)//5 is arbitrary range, requires ingame testing/            {
+        {
+            float distance = Vector3.Distance(target.transform.position, transform.position);
+            if (distance < 5 && target.GetComponent<Person>().fear >= 100)//5 is arbitrary range, requires ingame testing/           
+            {
                 target.GetComponent<Person>().status = "gtfo";
             }
         }
+
+        
+                
+
+        
     }
+}
