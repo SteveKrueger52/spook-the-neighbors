@@ -82,7 +82,7 @@ public class TutorialScript : MonoBehaviour
     void part9()
     {
         currentText.text = "Nice, you scared them a little! But unlike the cat, this person needs to be scared more. You'll need to haunt another object to do that.";
-        StartCoroutine(pause(5, part10));
+        StartCoroutine(pause(4, part10));
     }
 
     void part10()
