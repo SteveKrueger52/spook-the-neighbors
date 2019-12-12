@@ -35,7 +35,7 @@ public class HauntableObject : MonoBehaviour
     public string AText = "";
     public string BText = "";
     public string YText = "";
-    public string XText = "";
+    public string XText = "Appear";
 
     public virtual void OnInteract() { }
     public virtual void OnStart() { }
@@ -120,7 +120,7 @@ public class HauntableObject : MonoBehaviour
 
     }
 
-    public void Unhaunt()
+    public virtual void Unhaunt()
     {
         isHaunted = false;
         ghost.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -1);
