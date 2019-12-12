@@ -9,6 +9,7 @@ TagManager:
   - Exit
   - HauntableObject
   - Person
+  - Door
   layers:
   - Default
   - TransparentFX

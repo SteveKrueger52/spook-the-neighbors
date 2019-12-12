@@ -22,7 +22,9 @@ public class GhostController : MonoBehaviour
         delta = delta.magnitude > 1 ? delta.normalized : delta;
         transform.localPosition += new Vector3(delta.x, delta.y, 0) * speed;
         if (Input.GetButtonDown("Boo"))
+        {   
             boo();
+        }
         if (Input.GetButtonDown("Hide"))
         {
             Color temp = GetComponent<SpriteRenderer>().color;

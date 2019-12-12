@@ -10,6 +10,9 @@ public class HauntableObject : MonoBehaviour
     public bool isTriggered = false;
     public float speed = 0;
 
+    public List<string> ScaredObjectderived;
+
+
     private GameObject _ghost;
     public GameObject ghost
     {
@@ -44,6 +47,8 @@ public class HauntableObject : MonoBehaviour
     {
         
         OnStart();
+        ScaredObjectderived = GameObject.FindGameObjectWithTag("Person").GetComponent<Person>().ScaredObjects;
+
     }
 
     // Update is called once per frame

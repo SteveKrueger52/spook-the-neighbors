@@ -22,6 +22,8 @@ public class Person : MonoBehaviour
 
     GhostController _ghostControllerScript;
 
+    public List<string> ScaredObjects;
+
 
     
 
@@ -38,9 +40,10 @@ public class Person : MonoBehaviour
     void Start()
     {
         exits = new List<GameObject>(GameObject.FindGameObjectsWithTag("Exit"));
-       // Doors = new List<GameObject>(GameObject.FindGameObjectsWithTag("Door"));
+        Doors = new List<GameObject>(GameObject.FindGameObjectsWithTag("Door"));
        // Y = transform.position.y;
         X = Random.Range(MinX, MaxX);
+        ScaredObjects = new List<string>();
     }
 
     // Update is called once per frame
@@ -80,21 +83,45 @@ public class Person : MonoBehaviour
 
             if (HauntableScript.isTriggered)
             {
+               
                 //StopWalking = true;
                 status = "investigate";
+                if (!ScaredObjects.Contains(HauntableScript.gameObject.name))
+                {
+                    ScaredObjects.Add(HauntableScript.gameObject.name);
+                }
 
             }
+         
         }
-
-        Target = collision.gameObject.transform.position;
+            Target = collision.gameObject.transform.position;
 
     }
 
-    public void Scare(float fright)
+
+    //public void TriggerFunction(GameObject ObjectTriggered)
+    //{
+    //    if(ObjectTriggered.GetComponent<HauntableObject>().isTriggered)
+    //    {
+    //        status = "investigate";
+    //        if (!ScaredObjects.Contains(HauntableScript.gameObject.name))
+    //        {
+    //            ScaredObjects.Add(HauntableScript.gameObject.name);
+    //        }
+
+    //        Target = ObjectTriggered.transform.position;
+    //    }
+    //}
+
+
+    public void Scare(float fright, string ObjectName)
     {
-        fear += fright;
-        if (fear > maxFear)
-            fear = maxFear;
+        if (!ScaredObjects.Contains(ObjectName))
+        {
+            fear += fright;
+            if (fear > maxFear)
+                fear = maxFear;
+        }
     }
 
     public GameObject GetClosestExit() //this finds closest exit to person on the screen, not necessarily exit with shortest path
@@ -117,8 +144,9 @@ public class Person : MonoBehaviour
     //          Vector2.Distance(this.transform.position, b.transform.position));
     //    });
 
-    //    //GhostToDoor = Vector2.Distance(_ghostControllerScript.transform.position, Doors[0].transform.position);
-    //    //PersonToDoor = Vector2.Distance(transform.position, Doors[0].transform.position);
+    //    GhostToDoor = Vector2.Distance(HauntableScript.gameObject.transform.position, Doors[0].transform.position);
+        
+    //    PersonToDoor = Vector2.Distance(transform.position, Doors[0].transform.position);
 
     //    if (GhostToDoor < PersonToDoor)
     //    {
@@ -156,11 +184,16 @@ public class Person : MonoBehaviour
 
     void Investigate()
     {
-
-        //if (fear <= 50)
+        //if (Vector2.Distance(transform.position, HauntableScript.gameObject.transform.position) > 2)
         //{
-            MoveSpot = new Vector2(Target.x, Y);
-            transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
+        //}
+        //if (Vector2.Distance(transform.position, HauntableScript.gameObject.transform.position) <= 2)
+        //{
+        //    Target = GetClosestDoor().transform.position;
+        //}
+
+        MoveSpot = new Vector2(Target.x, Y);
+        transform.position = Vector2.MoveTowards(transform.position, MoveSpot, speed * Time.deltaTime);
 
 
 
