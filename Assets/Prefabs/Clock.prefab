@@ -104,7 +104,7 @@ MonoBehaviour:
   AText: 
   BText: 
   YText: Reset
-  XText: 
+  XText: Appear
 --- !u!50 &1112525
 Rigidbody2D:
   serializedVersion: 4

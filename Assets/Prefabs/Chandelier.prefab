@@ -103,7 +103,7 @@ MonoBehaviour:
   AText: 
   BText: 
   YText: Fall
-  XText: 
+  XText: Appear
 --- !u!50 &701098811
 Rigidbody2D:
   serializedVersion: 4
