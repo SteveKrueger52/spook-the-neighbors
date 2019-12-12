@@ -24,6 +24,8 @@ public class Person : MonoBehaviour
 
     public List<string> ScaredObjects;
 
+    
+
 
     
 
@@ -44,6 +46,7 @@ public class Person : MonoBehaviour
        // Y = transform.position.y;
         X = Random.Range(MinX, MaxX);
         ScaredObjects = new List<string>();
+        
     }
 
     // Update is called once per frame
@@ -86,15 +89,12 @@ public class Person : MonoBehaviour
                
                 //StopWalking = true;
                 status = "investigate";
-                if (!ScaredObjects.Contains(HauntableScript.gameObject.name))
-                {
-                    ScaredObjects.Add(HauntableScript.gameObject.name);
-                }
+                
+                Target = collision.gameObject.transform.position;
 
             }
-         
+
         }
-            Target = collision.gameObject.transform.position;
 
     }
 
@@ -121,7 +121,10 @@ public class Person : MonoBehaviour
             fear += fright;
             if (fear > maxFear)
                 fear = maxFear;
+            ScaredObjects.Add(ObjectName);
+
         }
+        
     }
 
     public GameObject GetClosestExit() //this finds closest exit to person on the screen, not necessarily exit with shortest path
@@ -226,6 +229,7 @@ public class Person : MonoBehaviour
 
     void GTFO()
     {
+        
         MoveSpot = GetClosestExit().transform.position;
         transform.position = Vector2.MoveTowards(transform.position, MoveSpot, RunSpeed * Time.deltaTime);
 

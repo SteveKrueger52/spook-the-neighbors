@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GhostController : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class GhostController : MonoBehaviour
     public bool hidden = false;
     public float hauntRange = 0.1f;
     
+   
+    
     // Start is called before the first frame update
     void Start()
     {
         hauntables = new List<GameObject>(GameObject.FindGameObjectsWithTag("HauntableObject"));
+      
     }
 
     // Update is called once per frame
@@ -57,12 +61,12 @@ public class GhostController : MonoBehaviour
             hauntables[0].GetComponent<HauntableObject>().isHighlighted = true;
         }
 
+       
+
     }
 
     void boo()
     {
-        
-
 
        //boo!
        // Instantiate(new ObjectTrigger(), this.transform);

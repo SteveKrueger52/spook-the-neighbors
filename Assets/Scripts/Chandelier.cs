@@ -17,7 +17,9 @@ public class Chandelier : HauntableObject
 
         //isTriggered = true;
         //Instantiate(new ObjectTrigger(), this.transform);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
+        this.isTriggered = !this.isTriggered;
+
 
         GameObject[] people = GameObject.FindGameObjectsWithTag("Person");
         foreach (GameObject target in people)

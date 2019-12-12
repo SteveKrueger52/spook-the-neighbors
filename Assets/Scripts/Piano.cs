@@ -49,7 +49,7 @@ public class Piano : HauntableObject
             float distance = Vector3.Distance(target.transform.position, transform.position);
             if (distance < 5)//5 is arbitrary range, requires ingame testing
             {
-                target.GetComponent<Person>().Scare(20);
+                target.GetComponent<Person>().Scare(20, this.name);
             }
         }
     }
