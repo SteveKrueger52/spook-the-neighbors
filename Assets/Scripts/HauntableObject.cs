@@ -115,8 +115,8 @@ public class HauntableObject : MonoBehaviour
 
         cText.text = YText;
         xText.text = XText;
-        spaceText.text = AText;
-        zText.text = BText;
+        spaceText.text = BText;
+        zText.text = AText;
 
     }
 
